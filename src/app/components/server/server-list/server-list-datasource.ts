@@ -8,30 +8,32 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 export interface ServerListItem {
   name: string;
   id: number;
+  ip: string;
+  gp: string;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: ServerListItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  {id: 1, name: 'TESTE-01', ip: '192.168.0.1', gp: 'Adireto-01'},
+  {id: 2, name: 'TESTE-02', ip: '192.168.0.2', gp: 'Adireto-01'},
+  {id: 3, name: 'TESTE-03', ip: '192.168.0.3', gp: 'Adireto-02'},
+  {id: 4, name: 'TESTE-04', ip: '192.168.0.4', gp: 'Adireto-02'},
+  {id: 5, name: 'TESTE-05', ip: '192.168.0.5', gp: 'Adireto-03'},
+  {id: 6, name: 'TESTE-06', ip: '192.168.0.6', gp: 'Adireto-03'},
+  {id: 7, name: 'TESTE-07', ip: '192.168.0.7', gp: 'Imp-01'},
+  {id: 8, name: 'TESTE-08', ip: '192.168.0.8', gp: 'Imp-01'},
+  {id: 9, name: 'TESTE-09', ip: '192.168.0.9', gp: 'Imp-01'},
+  {id: 10, name: 'TESTE-10', ip: '192.168.0.10', gp: 'Imp-02'},
+  {id: 11, name: 'TESTE-11', ip: '192.168.0.11', gp: 'Imp-02'},
+  {id: 12, name: 'TESTE-12', ip: '192.168.0.12', gp: 'Imp-02'},
+  {id: 13, name: 'TESTE-13', ip: '192.168.0.13', gp: 'Imp-02'},
+  {id: 14, name: 'TESTE-14', ip: '192.168.0.14', gp: 'Imp-03'},
+  {id: 15, name: 'TESTE-15', ip: '192.168.0.15', gp: 'Imp-04'},
+  {id: 16, name: 'TESTE-16', ip: '192.168.0.16', gp: 'Imp-03'},
+  {id: 17, name: 'TESTE-17', ip: '192.168.0.17', gp: 'Imp-04'},
+  {id: 18, name: 'TESTE-18', ip: '192.168.0.18', gp: 'Imp-03'},
+  {id: 19, name: 'TESTE-19', ip: '192.168.0.19', gp: 'Servicetrix-01'},
+  {id: 20, name: 'TESTE-20', ip: '192.168.0.20', gp: 'Servicetrix-01'},
 ];
 
 /**
