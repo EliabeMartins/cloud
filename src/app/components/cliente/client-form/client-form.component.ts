@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClienteService } from './../cliente.service'; 
+
 import { Cliente } from './../cliente.model';
+import { ApiService } from './../../../api/api.service';
+// import { ClienteService } from './../cliente.service'; 
 
 @Component({
   selector: 'app-client-form',
@@ -16,15 +18,15 @@ export class ClientFormComponent implements OnInit {
     tel: ''
   }
   constructor(
-    private clienteService: ClienteService,
+    private apiService: ApiService,
     private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  newCliente(): void {
-    this.clienteService.create(this.cliente).subscribe(() =>{
-      this.clienteService.showMessage('Cliente Cadastrado Com Sucesso!')
+  novoCliente(): void {
+    this.apiService.newCliente(this.cliente).subscribe(() =>{
+      this.apiService.showMessage('Cliente Cadastrado Com Sucesso!')
       this.router.navigate(['/clientes'])
     })
   }

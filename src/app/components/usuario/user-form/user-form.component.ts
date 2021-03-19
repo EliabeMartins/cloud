@@ -22,8 +22,8 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  newUsuario(): void {
-    this.apiService.create(this.usuario).subscribe(() =>{
+  novoUsuario(): void {
+    this.apiService.newUser(this.usuario).subscribe(() =>{
       this.apiService.showMessage('Usuário Cadastrado Com Sucesso!')
       this.router.navigate(['/users'])
     })

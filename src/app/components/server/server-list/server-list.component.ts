@@ -16,7 +16,7 @@ export class ServerListComponent implements AfterViewInit {
   dataSource: ServerListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'ip', 'cliente'];
+  displayedColumns = ['id', 'name', 'ip', 'cliente', 'action'];
 
   constructor() {
     this.dataSource = new ServerListDataSource();

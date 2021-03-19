@@ -16,7 +16,7 @@ export class ClientListComponent implements AfterViewInit {
   dataSource: ClientListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'email', 'tel'];
+  displayedColumns = ['id', 'name', 'email', 'tel', 'action'];
 
   constructor() {
     this.dataSource = new ClientListDataSource();
