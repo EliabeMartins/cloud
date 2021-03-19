@@ -2,24 +2,24 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { ServerListDataSource, ServerListItem } from './server-list-datasource';
+import { ClientListDataSource, ClientListItem } from './client-list-datasource';
 
 @Component({
-  selector: 'app-server-list',
-  templateUrl: './server-list.component.html',
-  styleUrls: ['./server-list.component.css']
+  selector: 'app-client-list',
+  templateUrl: './client-list.component.html',
+  styleUrls: ['./client-list.component.css']
 })
-export class ServerListComponent implements AfterViewInit {
+export class ClientListComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<ServerListItem>;
-  dataSource: ServerListDataSource;
+  @ViewChild(MatTable) table!: MatTable<ClientListItem>;
+  dataSource: ClientListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'ip', 'cliente'];
+  displayedColumns = ['id', 'name', 'email', 'tel'];
 
   constructor() {
-    this.dataSource = new ServerListDataSource();
+    this.dataSource = new ClientListDataSource();
   }
 
   ngAfterViewInit(): void {

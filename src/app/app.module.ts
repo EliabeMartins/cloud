@@ -17,6 +17,9 @@ import { TaskComponent } from './views/task/task.component';
 import { ServerListComponent } from './components/server/server-list/server-list.component';
 import { ServerFormComponent } from './components/server/server-form/server-form.component';
 
+// Clientes
+import { ClientFormComponent } from './components/cliente/client-form/client-form.component';
+import { ClientListComponent } from './components/cliente/client-list/client-list.component';
 
 // Layout
 import { MainComponent } from './components/layout/main/main.component';
@@ -40,6 +43,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { ClientesComponent } from './views/clientes/clientes.component';
+
 
 
 
@@ -61,7 +66,10 @@ import { MatIconModule } from '@angular/material/icon';
     DashboardComponent,
     TaskComponent,
     AlertsComponent,
-    AccountComponent
+    AccountComponent,
+    ClientFormComponent,
+    ClientListComponent,
+    ClientesComponent
  
   ],
   imports: [

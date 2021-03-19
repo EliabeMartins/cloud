@@ -14,7 +14,9 @@ export class ServerFormComponent implements OnInit {
 
   server: Servidor = {
     name: '',
-    ip: ''
+    ip: '',
+    snmp: '',
+    cliente: ''
   }
   constructor(
     private servidorService: ServidorService,  

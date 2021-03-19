@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-servers',
-  templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  selector: 'app-clientes',
+  templateUrl: './clientes.component.html',
+  styleUrls: ['./clientes.component.css']
 })
-export class ServersComponent implements OnInit {
+export class ClientesComponent implements OnInit {
 
   constructor(
     private router: Router) { }
@@ -14,12 +14,7 @@ export class ServersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToCreateServer(): void {
-    this.router.navigate(['new/server'])
-  }
-
   navigateToCreateCliente(): void {
     this.router.navigate(['new/cliente'])
   }
-
 }

@@ -5,44 +5,33 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
-export interface ServerListItem {
+export interface ClientListItem {
   name: string;
   id: number;
-  ip: string;
-  cliente: string;
+  email: string;
+  tel: string;
 }
 
 // TODO: replace this with real data from your application
-const EXAMPLE_DATA: ServerListItem[] = [
-  {id: 1, name: 'TESTE-01', ip: '192.168.0.1', cliente: 'Adireto-01'},
-  {id: 2, name: 'TESTE-02', ip: '192.168.0.2', cliente: 'Adireto-01'},
-  {id: 3, name: 'TESTE-03', ip: '192.168.0.3', cliente: 'Adireto-02'},
-  {id: 4, name: 'TESTE-04', ip: '192.168.0.4', cliente: 'Adireto-02'},
-  {id: 5, name: 'TESTE-05', ip: '192.168.0.5', cliente: 'Adireto-03'},
-  {id: 6, name: 'TESTE-06', ip: '192.168.0.6', cliente: 'Adireto-03'},
-  {id: 7, name: 'TESTE-07', ip: '192.168.0.7', cliente: 'Imp-01'},
-  {id: 8, name: 'TESTE-08', ip: '192.168.0.8', cliente: 'Imp-01'},
-  {id: 9, name: 'TESTE-09', ip: '192.168.0.9', cliente: 'Imp-01'},
-  {id: 10, name: 'TESTE-10', ip: '192.168.0.10', cliente: 'Imp-02'},
-  {id: 11, name: 'TESTE-11', ip: '192.168.0.11', cliente: 'Imp-02'},
-  {id: 12, name: 'TESTE-12', ip: '192.168.0.12', cliente: 'Imp-02'},
-  {id: 13, name: 'TESTE-13', ip: '192.168.0.13', cliente: 'Imp-02'},
-  {id: 14, name: 'TESTE-14', ip: '192.168.0.14', cliente: 'Imp-03'},
-  {id: 15, name: 'TESTE-15', ip: '192.168.0.15', cliente: 'Imp-04'},
-  {id: 16, name: 'TESTE-16', ip: '192.168.0.16', cliente: 'Imp-03'},
-  {id: 17, name: 'TESTE-17', ip: '192.168.0.17', cliente: 'Imp-04'},
-  {id: 18, name: 'TESTE-18', ip: '192.168.0.18', cliente: 'Imp-03'},
-  {id: 19, name: 'TESTE-19', ip: '192.168.0.19', cliente: 'Servicetrix-01'},
-  {id: 20, name: 'TESTE-20', ip: '192.168.0.20', cliente: 'Servicetrix-01'},
+const EXAMPLE_DATA: ClientListItem[] = [
+  {id: 1, name: 'ELAIBE MARTINS', email: 'eliabe@servicetrix.com', tel: '41 99196-8108'},
+  {id: 2, name: 'MARCO', email: 'marco@servicetrix.com', tel: ''},
+  {id: 3, name: 'LUCAS', email: 'lucas@servicetrix.com', tel: ''},
+  {id: 4, name: 'MATHEUS', email: 'matheus@servicetrix.com', tel: ''},
+  {id: 5, name: 'TARZAN', email: 'tarzan@servicetrix.com', tel: ''},
+  {id: 6, name: 'DEKU', email: 'deku@servicetrix.com', tel: ''},
+  {id: 7, name: 'NARUTO', email: 'naruto@servicetrix.com', tel: ''},
+  {id: 8, name: 'BORUTO', email: 'boruto@servicetrix.com', tel: ''},
+  {id: 9, name: 'MARTA', email: 'marta@servicetrix.com', tel: ''},
 ];
 
 /**
- * Data source for the ServerList view. This class should
+ * Data source for the ClientList view. This class should
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class ServerListDataSource extends DataSource<ServerListItem> {
-  data: ServerListItem[] = EXAMPLE_DATA;
+export class ClientListDataSource extends DataSource<ClientListItem> {
+  data: ClientListItem[] = EXAMPLE_DATA;
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;
 
@@ -55,7 +44,7 @@ export class ServerListDataSource extends DataSource<ServerListItem> {
    * the returned stream emits new items.
    * @returns A stream of the items to be rendered.
    */
-  connect(): Observable<ServerListItem[]> {
+  connect(): Observable<ClientListItem[]> {
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
@@ -78,7 +67,7 @@ export class ServerListDataSource extends DataSource<ServerListItem> {
    * Paginate the data (client-side). If you're using server-side pagination,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getPagedData(data: ServerListItem[]): ServerListItem[] {
+  private getPagedData(data: ClientListItem[]): ClientListItem[] {
     if (this.paginator) {
       const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
       return data.splice(startIndex, this.paginator.pageSize);
@@ -91,7 +80,7 @@ export class ServerListDataSource extends DataSource<ServerListItem> {
    * Sort the data (client-side). If you're using server-side sorting,
    * this would be replaced by requesting the appropriate data from the server.
    */
-  private getSortedData(data: ServerListItem[]): ServerListItem[] {
+  private getSortedData(data: ClientListItem[]): ClientListItem[] {
     if (!this.sort || !this.sort.active || this.sort.direction === '') {
       return data;
     }

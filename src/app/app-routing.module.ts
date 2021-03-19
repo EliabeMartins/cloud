@@ -13,10 +13,14 @@ import { LoginComponent } from './views/login/login.component';
 //Servidor
 import { ServerFormComponent } from './components/server/server-form/server-form.component';
 
+//import 
+import{ ClientFormComponent } from './components/cliente/client-form/client-form.component';
+
 //Views
 import { AlertsComponent } from './views/alerts/alerts.component';
 import { TaskComponent } from './views/task/task.component';
 import { ServersComponent } from './views/servers/servers.component';
+import { ClientesComponent } from './views/clientes/clientes.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
 
@@ -27,10 +31,13 @@ const routes: Routes = [
     children: [
       {  path: '', component: DashboardComponent },
       {  path: 'servers', component: ServersComponent },
+      {  path: 'clientes', component: ClientesComponent },
       {  path: 'tarefas', component: TaskComponent },
       {  path: 'alerts', component: AlertsComponent },
       {  path: 'new/server', component: ServerFormComponent },
-      {  path: 'edit/server/:id', component: ServerFormComponent }
+      {  path: 'server/:id', component: ServerFormComponent },
+      {  path: 'new/cliente', component: ClientFormComponent },
+      {  path: 'cliente/:id', component: ClientFormComponent }
     ],
     // canActivate: [AuthGuard]
   },
