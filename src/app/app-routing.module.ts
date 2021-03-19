@@ -1,3 +1,4 @@
+
 // Angular
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,17 +11,21 @@ import { AccountComponent } from './views/account/account.component';
 import { LoginComponent } from './views/login/login.component';
 // import { AuthGuard } from './views/shared/auth.guard';
 
-//Servidor
+// Servidor
 import { ServerFormComponent } from './components/server/server-form/server-form.component';
 
-//import 
+// Cliente
 import{ ClientFormComponent } from './components/cliente/client-form/client-form.component';
+
+// Usuário
+import { UserFormComponent } from './components/usuario/user-form/user-form.component';
 
 //Views
 import { AlertsComponent } from './views/alerts/alerts.component';
 import { TaskComponent } from './views/task/task.component';
 import { ServersComponent } from './views/servers/servers.component';
 import { ClientesComponent } from './views/clientes/clientes.component';
+import { UsersComponent } from './views/users/users.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
 
@@ -34,8 +39,13 @@ const routes: Routes = [
       {  path: 'clientes', component: ClientesComponent },
       {  path: 'tarefas', component: TaskComponent },
       {  path: 'alerts', component: AlertsComponent },
+      {  path: 'users', component: UsersComponent },
+
+
       {  path: 'new/server', component: ServerFormComponent },
       {  path: 'server/:id', component: ServerFormComponent },
+      {  path: 'new/user', component: UserFormComponent },
+      {  path: 'user/:id', component: UserFormComponent},
       {  path: 'new/cliente', component: ClientFormComponent },
       {  path: 'cliente/:id', component: ClientFormComponent }
     ],

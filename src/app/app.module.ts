@@ -44,6 +44,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { ClientesComponent } from './views/clientes/clientes.component';
+import { UsersComponent } from './views/users/users.component';
+import { UserFormComponent } from './components/usuario/user-form/user-form.component';
+import { UserListComponent } from './components/usuario/user-list/user-list.component';
 
 
 
@@ -69,7 +72,10 @@ import { ClientesComponent } from './views/clientes/clientes.component';
     AccountComponent,
     ClientFormComponent,
     ClientListComponent,
-    ClientesComponent
+    ClientesComponent,
+    UsersComponent,
+    UserFormComponent,
+    UserListComponent
  
   ],
   imports: [
