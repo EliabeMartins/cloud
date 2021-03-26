@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../../../api/api.service';
-import { Servidor } from './../servidor.model';
+import { Servidor } from '../../models/servidor.model';
 @Component({
   selector: 'app-server-list',
   templateUrl: './server-list.component.html',

@@ -5,9 +5,9 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 
 // Modelos
-import { Usuario } from './../components/usuario/usuario.model';
-import { Servidor } from './../components/server/servidor.model';
-import { Cliente } from './../components/cliente/cliente.model';
+import { Usuario } from '../components/models/usuario.model';
+import { Servidor } from '../components/models/servidor.model';
+import { Cliente } from '../components/models/cliente.model';
 
 @Injectable({
     providedIn: 'root'

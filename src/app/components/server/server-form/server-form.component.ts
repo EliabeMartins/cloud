@@ -1,7 +1,7 @@
 import { ApiService } from './../../../api/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Servidor } from './../servidor.model';
+import { Servidor } from '../../models/servidor.model';
 // import { ServidorService } from './../servidor.service';
 
 

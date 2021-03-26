@@ -1,5 +1,5 @@
 import { ApiService } from './../../../api/api.service';
-import { Usuario } from './../usuario.model';
+import { Usuario } from '../../models/usuario.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
