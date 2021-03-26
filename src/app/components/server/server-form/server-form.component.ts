@@ -15,10 +15,9 @@ import { Servidor } from './../servidor.model';
 export class ServerFormComponent implements OnInit {
 
   server: Servidor = {
-    name: '',
-    ip: '',
-    snmp: '',
-    cliente: ''
+    NAME: '',
+    IP: '',
+    SNMP: ''
   }
   constructor(
     private apiService: ApiService,  
@@ -28,8 +27,10 @@ export class ServerFormComponent implements OnInit {
   }
 
   novoServidor(): void {
+    this.apiService.showMessage('Servidor Cadastrado!')
+    
     this.apiService.newServer(this.server).subscribe(() =>{
-      this.apiService.showMessage('Servidor Cadastrado!')
+      // this.apiService.showMessage('Servidor Cadastrado!')
       this.router.navigate(['/servers'])
     })
   }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 // Modelos
 import { Usuario } from './../components/usuario/usuario.model';
@@ -14,7 +15,13 @@ import { Cliente } from './../components/cliente/cliente.model';
 
 export class ApiService {
 
-    baseURL = 'http://localhost:3000';
+    baseURL = 'http://localhost:3000/';
+
+    httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
     
     constructor(
         private http: HttpClient,
@@ -34,28 +41,46 @@ export class ApiService {
 
   // INSERIR NOVO CLIENTE
   newCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(`${this.baseURL}/cliente`, cliente);
+    return this.http.post<Cliente>(this.baseURL, cliente);
   }
   // OBTEM TODOS OS CLIENTES NO BD
   getCliente(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(`${this.baseURL}/clientes`);
+    return this.http.get<Cliente[]>(`${this.baseURL}clientes`);
   }
+  // OBTEM TODOS OS CLIENTES NO BD
 
 
 
 
-
-
-  // ********* METODOS DE SERVIDOR *********
+  // ############ METODOS DE SERVIDOR ############
 
   // INSERIR NOVO SERVIDOR
   newServer(server: Servidor): Observable<Servidor> {
-    return this.http.post<Servidor>(`${this.baseURL}/servers`, server);
+    return this.http.put<Servidor>(`${this.baseURL}servers`, server);
   }
   // OBTEM TODOS OS SERVIDORES NO BD
   getServer(): Observable<Servidor[]> {
-    return this.http.get<Servidor[]>(`${this.baseURL}/servers`);
+    return this.http.get<Servidor[]>(`${this.baseURL}servers`);
   }
+  // OBTEM DADOS DE UM SERVIDOR
+  serverById(id: string): Observable<Servidor>{
+    const url = `${this.baseURL}servers/${id}`
+    return this.http.get<Servidor>(url)
+  }
+  // ATUALIZA DADOS DO SERVIDOR
+  serverUpdate(server: Servidor): Observable<Servidor> {
+    const url = `${this.baseURL}servers/${server.ID}`
+    return this.http.put<Servidor>(url, server)
+  }
+
+  // ################################################
+
+
+
+
+
+
+
 
 
 
@@ -75,7 +100,53 @@ export class ApiService {
   }
 
 
-
-
+  // *********  METODO DE LOGIN *********
+  // doLogin(login:string, password:string):void{
+  //   this.http.post<any>('http://localhost:3000/login/', { login: login,password:password }).subscribe(data => {
+  //     console.log("Hello:" + data.payLoad.name);
+  //   })
+  // }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // getAll(): Observable<any> {
+  //   return this.http.get(baseUrl);
+  // }
+
+  // get(id): Observable<any> {
+  //   return this.http.get(`${baseUrl}/${id}`);
+  // }
+
+  // create(data): Observable<any> {
+  //   return this.http.post(baseUrl, data);
+  // }
+
+  // update(id, data): Observable<any> {
+  //   return this.http.put(`${baseUrl}/${id}`, data);
+  // }
+
+  // delete(id): Observable<any> {
+  //   return this.http.delete(`${baseUrl}/${id}`);
+  // }
+
+  // deleteAll(): Observable<any> {
+  //   return this.http.delete(baseUrl);
+  // }
 }

@@ -1,30 +1,22 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { ClientListDataSource, ClientListItem } from './client-list-datasource';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from './../../../api/api.service';
+import { Cliente } from './../cliente.model';
 
 @Component({
   selector: 'app-client-list',
   templateUrl: './client-list.component.html',
   styleUrls: ['./client-list.component.css']
 })
-export class ClientListComponent implements AfterViewInit {
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatTable) table!: MatTable<ClientListItem>;
-  dataSource: ClientListDataSource;
+export class ClientListComponent implements OnInit {
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
+  cliente!: Cliente[];
   displayedColumns = ['id', 'name', 'email', 'tel', 'action'];
+  
+  constructor(private apiService: ApiService) { }
 
-  constructor() {
-    this.dataSource = new ClientListDataSource();
+  ngOnInit(): void {
+    this.apiService.getCliente().subscribe( 
+      cliente => this.cliente = cliente)
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
-  }
 }
