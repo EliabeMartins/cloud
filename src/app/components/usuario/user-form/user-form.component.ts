@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 export class UserFormComponent implements OnInit {
 
   usuario: Usuario = {
-    name: '',
-    email: '',
-    password: ''
+    NAME: '',
+    EMAIL: '',
+    PASSWORD: ''
   }
   constructor(
     private apiService: ApiService,
@@ -23,9 +23,8 @@ export class UserFormComponent implements OnInit {
   }
 
   novoUsuario(): void {
-    this.apiService.showMessage('Usuário Cadastrado Com Sucesso!')
     this.apiService.newUser(this.usuario).subscribe(() =>{
-      // this.apiService.showMessage('Usuário Cadastrado Com Sucesso!')
+      this.apiService.showMessage('Usuário Cadastrado Com Sucesso!')
       this.router.navigate(['/users'])
     })
   }

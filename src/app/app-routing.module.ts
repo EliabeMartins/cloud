@@ -44,8 +44,10 @@ const routes: Routes = [
 
       {  path: 'new/server', component: ServerFormComponent },
       {  path: 'server/:id', component: ServerFormComponent },
+      
       {  path: 'new/user', component: UserFormComponent },
       {  path: 'user/:id', component: UserFormComponent},
+      
       {  path: 'new/cliente', component: ClientFormComponent },
       {  path: 'cliente/:id', component: ClientFormComponent }
     ],

@@ -26,7 +26,7 @@ import { ClientListComponent } from './components/cliente/client-list/client-lis
 
 // Users
 import { UserFormComponent } from './components/usuario/user-form/user-form.component';
-import { UserListComponent } from './components/usuario/user-list/user-list.component';
+
 
 
 // Layout
@@ -82,8 +82,7 @@ import { MatIconModule } from '@angular/material/icon';
     ClientListComponent,
     ClientesComponent,
     UsersComponent,
-    UserFormComponent,
-    UserListComponent
+    UserFormComponent
  
   ],
   imports: [

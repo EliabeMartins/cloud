@@ -22,7 +22,7 @@ export class ApiService {
         'Content-Type': 'application/json'
       })
     };
-    
+
     constructor(
         private http: HttpClient,
         private snackBar: MatSnackBar) { }
@@ -41,10 +41,10 @@ export class ApiService {
 
   // INSERIR NOVO CLIENTE
   newCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(this.baseURL, cliente);
+    return this.http.post<Cliente>(`${this.baseURL}clientes`, cliente);
   }
   // OBTEM TODOS OS CLIENTES NO BD
-  getCliente(): Observable<Cliente[]> {
+  getAllCliente(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`${this.baseURL}clientes`);
   }
   // OBTEM TODOS OS CLIENTES NO BD
@@ -59,7 +59,7 @@ export class ApiService {
     return this.http.put<Servidor>(`${this.baseURL}servers`, server);
   }
   // OBTEM TODOS OS SERVIDORES NO BD
-  getServer(): Observable<Servidor[]> {
+  getAllServer(): Observable<Servidor[]> {
     return this.http.get<Servidor[]>(`${this.baseURL}servers`);
   }
   // OBTEM DADOS DE UM SERVIDOR
@@ -84,19 +84,14 @@ export class ApiService {
 
 
 
-
-
-
-
-
   // ********* METODOS DE USUÁRIO *********
   newUser(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(`${this.baseURL}/user`, usuario);
   }
 
   // OBTEM TODOS OS USUÁRIOS NO BD
-  getUser(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.baseURL}/users`);
+  getAllUser(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.baseURL}users`);
   }
 
 

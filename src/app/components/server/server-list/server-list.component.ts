@@ -14,7 +14,7 @@ export class ServerListComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getServer().subscribe( 
+    this.apiService.getAllServer().subscribe( 
       server => this.servidors = server)
   }
 
