@@ -1,3 +1,6 @@
+import { UserUpdateComponent } from './components/usuario/user-update/user-update.component';
+import { ServerUpdateComponent } from './components/server/server-update/server-update.component';
+
 
 // Angular
 import { NgModule } from '@angular/core';
@@ -16,6 +19,8 @@ import { ServerFormComponent } from './components/server/server-form/server-form
 
 // Cliente
 import{ ClientFormComponent } from './components/cliente/client-form/client-form.component';
+import { ClientUpdateComponent } from './components/cliente/client-update/client-update.component';
+import { ClientDeleteComponent } from './components/cliente/client-delete/client-delete.component';
 
 // Usuário
 import { UserFormComponent } from './components/usuario/user-form/user-form.component';
@@ -28,6 +33,8 @@ import { ClientesComponent } from './views/clientes/clientes.component';
 import { UsersComponent } from './views/users/users.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
+import { ServerDeleteComponent } from './components/server/server-delete/server-delete.component';
+
 
 const routes: Routes = [
   {  
@@ -43,13 +50,18 @@ const routes: Routes = [
 
 
       {  path: 'new/server', component: ServerFormComponent },
-      {  path: 'server/:id', component: ServerFormComponent },
-      
-      {  path: 'new/user', component: UserFormComponent },
-      {  path: 'user/:id', component: UserFormComponent},
+      {  path: 'update/server/:id', component: ServerUpdateComponent },
+      {  path: 'delete/server/:id', component: ServerDeleteComponent },
       
       {  path: 'new/cliente', component: ClientFormComponent },
-      {  path: 'cliente/:id', component: ClientFormComponent }
+      {  path: 'update/cliente/:id', component: ClientUpdateComponent },
+      {  path: 'delete/cliente/:id', component: ClientDeleteComponent },
+
+      
+      {  path: 'new/user', component: UserFormComponent },
+      {  path: 'update/user/:id', component: UserUpdateComponent},
+      
+      
     ],
     // canActivate: [AuthGuard]
   },

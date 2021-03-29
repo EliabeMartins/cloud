@@ -16,12 +16,12 @@ import { ClientesComponent } from './views/clientes/clientes.component';
 import { UsersComponent } from './views/users/users.component';
 
 // Servers
-import { ServerListComponent } from './components/server/server-list/server-list.component';
+
 import { ServerFormComponent } from './components/server/server-form/server-form.component';
 
 // Clientes
 import { ClientFormComponent } from './components/cliente/client-form/client-form.component';
-import { ClientListComponent } from './components/cliente/client-list/client-list.component';
+
 
 
 // Users
@@ -52,6 +52,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { ClientUpdateComponent } from './components/cliente/client-update/client-update.component';
+import { ClientDeleteComponent } from './components/cliente/client-delete/client-delete.component';
+import { ServerDeleteComponent } from './components/server/server-delete/server-delete.component';
+import { ServerUpdateComponent } from './components/server/server-update/server-update.component';
+import { UserUpdateComponent } from './components/usuario/user-update/user-update.component';
 
 
 
@@ -67,7 +72,6 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [
     AppComponent,
     LoginComponent,
-    ServerListComponent,
     ServerFormComponent,
     MainComponent,
     HeaderComponent,
@@ -79,10 +83,14 @@ import { MatIconModule } from '@angular/material/icon';
     AlertsComponent,
     AccountComponent,
     ClientFormComponent,
-    ClientListComponent,
     ClientesComponent,
     UsersComponent,
-    UserFormComponent
+    UserFormComponent,
+    ClientUpdateComponent,
+    ClientDeleteComponent,
+    ServerDeleteComponent,
+    ServerUpdateComponent,
+    UserUpdateComponent
  
   ],
   imports: [

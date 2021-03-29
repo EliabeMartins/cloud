@@ -1,3 +1,5 @@
+import { Servidor } from './../../components/models/servidor.model';
+import { ApiService } from './../../api/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,11 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./servers.component.css']
 })
 export class ServersComponent implements OnInit {
+  
+  servidors!: Servidor[];
+  displayedColumns = ['id', 'name', 'ip', 'snmp', 'action'];
 
   constructor(
+    private apiService: ApiService,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.apiService.getAllServer().subscribe( 
+      server => this.servidors = server)
   }
 
   navigateToCreateServer(): void {

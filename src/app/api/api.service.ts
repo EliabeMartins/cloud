@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -37,62 +38,82 @@ export class ApiService {
   }
 
 
-  // ********* METODOS DE CLIENTES *********
-
-  // INSERIR NOVO CLIENTE
-  newCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(`${this.baseURL}clientes`, cliente);
-  }
-  // OBTEM TODOS OS CLIENTES NO BD
+  // ********* CLIENTES *********
   getAllCliente(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`${this.baseURL}clientes`);
   }
-  // OBTEM TODOS OS CLIENTES NO BD
 
-
-
-
-  // ############ METODOS DE SERVIDOR ############
-
-  // INSERIR NOVO SERVIDOR
-  newServer(server: Servidor): Observable<Servidor> {
-    return this.http.put<Servidor>(`${this.baseURL}servers`, server);
+  newCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(`${this.baseURL}clientes`, cliente);
   }
-  // OBTEM TODOS OS SERVIDORES NO BD
+
+  clientById(ID: string): Observable<Cliente> {
+    const url = `${this.baseURL}clientes/${ID}`
+    return this.http.get<Cliente>(url)
+  }
+
+  updateClient(cliente: Cliente): Observable<Cliente>{
+    const url = `${this.baseURL}clientes/${cliente.ID}`
+    return this.http.patch<Cliente>(url, cliente)
+  }
+
+  delClient(ID: string): Observable<Cliente>{
+    const url = `${this.baseURL}clientes/${ID}`
+    return this.http.delete<Cliente>(url);
+  }
+
+
+
+  // ############ SERVIDOR ############
   getAllServer(): Observable<Servidor[]> {
     return this.http.get<Servidor[]>(`${this.baseURL}servers`);
   }
-  // OBTEM DADOS DE UM SERVIDOR
-  serverById(id: string): Observable<Servidor>{
-    const url = `${this.baseURL}servers/${id}`
+  newServer(server: Servidor): Observable<Servidor> {
+    return this.http.post<Servidor>(`${this.baseURL}servers`, server);
+  }
+
+  serverById(ID: string): Observable<Servidor>{
+    const url = `${this.baseURL}servers/${ID}`
     return this.http.get<Servidor>(url)
   }
-  // ATUALIZA DADOS DO SERVIDOR
-  serverUpdate(server: Servidor): Observable<Servidor> {
+
+  updateServer(server: Servidor): Observable<Servidor> {
     const url = `${this.baseURL}servers/${server.ID}`
-    return this.http.put<Servidor>(url, server)
+    return this.http.patch<Servidor>(url, server)
   }
 
-  // ################################################
-
-
-
-
-
-
-
-
-
-
-  // ********* METODOS DE USUÁRIO *********
-  newUser(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.baseURL}/user`, usuario);
+  delServer(ID: string): Observable<Servidor>{
+    const url = `${this.baseURL}servers/${ID}`
+    return this.http.delete<Servidor>(url);
   }
 
-  // OBTEM TODOS OS USUÁRIOS NO BD
+
+  // ********* USUÁRIO *********
   getAllUser(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.baseURL}users`);
   }
+
+  newUser(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(`${this.baseURL}/users`, usuario);
+  }
+
+  userById(ID: string): Observable<Usuario>{
+    const url = `${this.baseURL}users/${ID}`
+    return this.http.get<Usuario>(url)
+  }
+
+  updateUser(server: Usuario): Observable<Usuario> {
+    const url = `${this.baseURL}users/${server.ID}`
+    return this.http.put<Usuario>(url, server)
+  }
+
+  delUser(ID: string): Observable<Usuario>{
+    const url = `${this.baseURL}users/${ID}`
+    return this.http.delete<Usuario>(url);
+  }
+
+
+
 
 
   // *********  METODO DE LOGIN *********
@@ -102,23 +123,6 @@ export class ApiService {
   //   })
   // }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   // getAll(): Observable<any> {

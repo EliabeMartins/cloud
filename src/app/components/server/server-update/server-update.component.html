@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-card-title>Novo Servidor</mat-card-title>
+    <mat-card-title>Atualizar Servidor</mat-card-title>
     <form>
         <mat-form-field>
             <input matInput placeholder="Nome" 
@@ -15,12 +15,11 @@
             <input matInput placeholder="SNMP_COMMUNITY"
             [(ngModel)]="server.SNMP" name="snmp">
         </mat-form-field>
-
     </form>
     
     
-    <button mat-raised-button (click)="novoServidor()" color="primary">
-        Cadastrar
+    <button mat-raised-button (click)="AtualizarServidor()" color="accent">
+        Atualizar
     </button>
     
     <button mat-raised-button (click)="cancel()">

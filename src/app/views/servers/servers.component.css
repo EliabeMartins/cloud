@@ -7,3 +7,21 @@ button {
 .cliente{
     margin-left: 30px;
 }
+
+.full-width-table {
+    width: 100%;
+  }
+  
+  .edit {
+    margin-right: 12px;
+    /* color: rgb(255, 0, 0); */
+  }
+  
+  .delet {
+    background-color: red;
+  }
+  
+  .ler {
+    margin-left: 12px;
+    background-color: blue;
+  }

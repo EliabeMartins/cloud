@@ -1,7 +1,6 @@
 export interface Servidor {
-    ID?: number,
+    ID?: string,
     NAME: string,
     IP: string,
     SNMP?: string
-    // cliente?: string
 }

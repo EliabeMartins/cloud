@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,11 +13,14 @@ import { ApiService } from './../../../api/api.service';
 })
 export class ClientFormComponent implements OnInit {
 
+  // cliente!: Cliente
+  
   cliente: Cliente = {
     NAME: '',
     EMAIL: '',
     TEL: ''
   }
+  
   constructor(
     private apiService: ApiService,
     private router: Router) { }
@@ -25,7 +29,6 @@ export class ClientFormComponent implements OnInit {
   }
 
   novoCliente(): void {
-    // this.apiService.showMessage('Cliente Cadastrado Com Sucesso!')
     this.apiService.newCliente(this.cliente).subscribe(() =>{
       this.apiService.showMessage('Cliente Cadastrado Com Sucesso!')
       this.router.navigate(['/clientes'])

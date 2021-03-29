@@ -2,7 +2,7 @@ import { ApiService } from './../../../api/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Servidor } from '../../models/servidor.model';
-// import { ServidorService } from './../servidor.service';
+
 
 
 //
@@ -14,11 +14,14 @@ import { Servidor } from '../../models/servidor.model';
 
 export class ServerFormComponent implements OnInit {
 
+  // server!: Servidor 
+
   server: Servidor = {
     NAME: '',
     IP: '',
     SNMP: ''
   }
+
   constructor(
     private apiService: ApiService,  
     private router: Router) { }
@@ -27,10 +30,9 @@ export class ServerFormComponent implements OnInit {
   }
 
   novoServidor(): void {
-    this.apiService.showMessage('Servidor Cadastrado!')
-    
+     
     this.apiService.newServer(this.server).subscribe(() =>{
-      // this.apiService.showMessage('Servidor Cadastrado!')
+      this.apiService.showMessage('Servidor Cadastrado Com Sucesso!')
       this.router.navigate(['/servers'])
     })
   }

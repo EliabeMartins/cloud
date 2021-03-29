@@ -2,7 +2,6 @@
     Novo Usuário
 </button>
 
-<!-- <app-user-list></app-user-list> -->
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="users" class="full-width-table">
     
@@ -33,10 +32,10 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>AÇÃO</th>
         <td mat-cell *matCellDef="let row">
-          <a routerLink="#" mat-mini-fab class="edit">
+          <a routerLink="/update/user/{{ row.ID }}" mat-mini-fab class="edit">
             <i class="material-icons">edit</i>
           </a>
-          <a routerLink="#" mat-mini-fab class="delet">
+          <a routerLink="/update/user/{{ row.ID }}" mat-mini-fab class="delet">
             <i class="material-icons">delete</i>
           </a>
           <!-- <a routerLink="#" mat-mini-fab class="ler">
