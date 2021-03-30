@@ -71,17 +71,14 @@ export class ApiService {
   newServer(server: Servidor): Observable<Servidor> {
     return this.http.post<Servidor>(`${this.baseURL}servers`, server);
   }
-
   serverById(ID: string): Observable<Servidor>{
     const url = `${this.baseURL}servers/${ID}`
     return this.http.get<Servidor>(url)
   }
-
   updateServer(server: Servidor): Observable<Servidor> {
     const url = `${this.baseURL}servers/${server.ID}`
     return this.http.patch<Servidor>(url, server)
   }
-
   delServer(ID: string): Observable<Servidor>{
     const url = `${this.baseURL}servers/${ID}`
     return this.http.delete<Servidor>(url);

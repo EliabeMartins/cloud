@@ -10,13 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientUpdateComponent implements OnInit {
 
-  cliente!: Cliente
-  // cliente: Cliente = {
-  //   ID '',
-  //   NAME: '',
-  //   EMAIL: '',
-  //   TEL: ''
-  // }
+  // cliente!: Cliente
+  cliente: Cliente = {
+    ID: '',
+    NAME: '',
+    EMAIL: '',
+    TEL: ''
+  }
 
   constructor(
     private apiService: ApiService,
@@ -30,7 +30,6 @@ export class ClientUpdateComponent implements OnInit {
       this.cliente = cliente;
     });
   }
-
 
   AtualizarCliente(): void {
     console.log(this.cliente);

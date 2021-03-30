@@ -16,6 +16,7 @@ export class ClientFormComponent implements OnInit {
   // cliente!: Cliente
   
   cliente: Cliente = {
+    ID:'',
     NAME: '',
     EMAIL: '',
     TEL: ''

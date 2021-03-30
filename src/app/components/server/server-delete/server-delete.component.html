@@ -2,6 +2,11 @@
     <mat-card-title>Excluir Servidor</mat-card-title>
     <form>
         <mat-form-field>
+            <input matInput placeholder="id" 
+            [value]="server.ID" name="id" disabled>
+        </mat-form-field>
+        
+        <mat-form-field>
             <input matInput placeholder="Name" 
             [value]="server.NAME" name="name" disabled>
         </mat-form-field>

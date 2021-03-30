@@ -10,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServerDeleteComponent implements OnInit {
 
-  server!: Servidor
+  // server!: Servidor
+  server: Servidor = {
+    NAME: '',
+    IP: '',
+    SNMP: ''
+  }
 
   constructor(
     private apiService: ApiService,
@@ -19,14 +24,14 @@ export class ServerDeleteComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    // let ID = this.route.snapshot.paramMap.get('id')
-    // this.apiService.serverById(`${ID}`).subscribe(server => {
-    //   this.server = server;
-    // });
+    let ID = this.route.snapshot.paramMap.get('id')
+    this.apiService.serverById(`${ID}`).subscribe(server => {
+      this.server = server;
+    });
   }
 
   DeletarServidor(): void {
-    this.apiService.delClient(`${this.server.ID}`).subscribe(() =>{
+    this.apiService.delServer(`${this.server.ID}`).subscribe(() =>{
       this.apiService.showMessage('Servidor Deletado Com Sucesso!')
       this.router.navigate(['/servers']);
     });

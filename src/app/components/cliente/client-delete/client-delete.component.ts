@@ -10,13 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientDeleteComponent implements OnInit {
   
-  cliente!: Cliente
-  // cliente: Cliente = {
-  //   ID '',
-  //   NAME: '',
-  //   EMAIL: '',
-  //   TEL: ''
-  // }
+  // cliente!: Cliente
+  cliente: Cliente = {
+    ID:'',
+    NAME: '',
+    EMAIL: '',
+    TEL: ''
+  }
 
   constructor(
     private apiService: ApiService,
@@ -31,10 +31,10 @@ export class ClientDeleteComponent implements OnInit {
     });
   }
 
-  DeletarCliente(): void {
-    console.log(this.cliente);
+  DeletarCliente(): void {  
     this.apiService.delClient(`${this.cliente.ID}`).subscribe(() =>{
       this.apiService.showMessage('Cliente Deletado Com Sucesso!')
+      console.log(this.cliente)
       this.router.navigate(['/clientes']);
     });
   }

@@ -2,6 +2,10 @@
     <mat-card-title>Excluir Cliente</mat-card-title>
     <form>
         <mat-form-field>
+            <input matInput placeholder="ID" 
+            [value]="cliente.ID" name="id" disabled>
+        </mat-form-field>
+        <mat-form-field>
             <input matInput placeholder="Name" 
             [value]="cliente.NAME" name="name" disabled>
         </mat-form-field>

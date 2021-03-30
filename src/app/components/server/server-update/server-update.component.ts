@@ -10,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServerUpdateComponent implements OnInit {
 
-  server!: Servidor
+  // server!: Servidor
+  server: Servidor = {
+    NAME: '',
+    IP: '',
+    SNMP: ''
+  }
 
   constructor(
     private apiService: ApiService,  
