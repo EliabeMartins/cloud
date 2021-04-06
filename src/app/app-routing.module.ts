@@ -11,7 +11,7 @@ import { MainComponent } from './components/layout/main/main.component';
 
 //Login
 import { LoginComponent } from './views/login/login.component';
-// import { AuthGuard } from './views/shared/auth.guard';
+// import { AuthService } from './views/login/auth/auth.service';
 
 // Servidor
 import { ServerFormComponent } from './components/server/server-form/server-form.component';
@@ -31,7 +31,6 @@ import { ServersComponent } from './views/servers/servers.component';
 import { ClientesComponent } from './views/clientes/clientes.component';
 import { UsersComponent } from './views/users/users.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-// import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
 import { ServerDeleteComponent } from './components/server/server-delete/server-delete.component';
 
 
@@ -66,7 +65,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    // component: AuthenticationComponent,
+    // component: AuthService,
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent }

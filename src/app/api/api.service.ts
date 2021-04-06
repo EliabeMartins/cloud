@@ -1,3 +1,4 @@
+import { Login } from './../components/models/login.model';
 
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -100,8 +101,7 @@ export class ApiService {
 
 
   // *********  METODO DE LOGIN *********
-  doLogin(login:string, password:string): Observable<any> {
-    return this.http.post<any>(`${this.baseURL}/login`, 
-    { login: login,password:password });
+  doLogin(login: Login): Observable<Login> {
+    return this.http.post<Login>(`${this.baseURL}login`, login);
   }
 }

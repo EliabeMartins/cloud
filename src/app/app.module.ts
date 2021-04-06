@@ -21,18 +21,14 @@ import { ServerFormComponent } from './components/server/server-form/server-form
 // Clientes
 import { ClientFormComponent } from './components/cliente/client-form/client-form.component';
 
-
-
 // Users
 import { UserFormComponent } from './components/usuario/user-form/user-form.component';
-
-
 
 // Layout
 import { MainComponent } from './components/layout/main/main.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
-// import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
+
 
 
 // Angular Material
@@ -75,7 +71,6 @@ import { UserUpdateComponent } from './components/usuario/user-update/user-updat
     MainComponent,
     HeaderComponent,
     SidebarComponent,
-    // AuthenticationComponent,
     ServersComponent,
     DashboardComponent,
     TaskComponent,
