@@ -3,12 +3,12 @@
     <form>
         <mat-form-field>
             <input matInput placeholder="Name" 
-            [(ngModel)]="cliente.NAME" name="name">
+            [(ngModel)]="cliente.NAME" name="NAME" required>
         </mat-form-field>
 
         <mat-form-field>
             <input matInput placeholder="Email" 
-            [(ngModel)]="cliente.EMAIL" name="email">
+            [(ngModel)]="cliente.EMAIL" name="EMAIL" required>
         </mat-form-field>
 
         <mat-form-field>
@@ -19,6 +19,8 @@
         <!-- <mat-form-field>
             <input matInput placeholder="GRUPO CLIENTE"
             [(ngModel)]="server.cliente">
+    NAME: [string, [Validators.required]],
+
         </mat-form-field> -->
     </form>
     

@@ -29,40 +29,34 @@ export class ApiService {
         private snackBar: MatSnackBar) { }
 
    // NOTIFICAÇÃO DE CRIAÇÃO 
-    showMessage(msg: string): void {
+    showMessage(msg: string, isError: boolean = false): void {
         this.snackBar.open(msg,  '', {
         duration: 3000,
         horizontalPosition: "right",
-        verticalPosition: "top"
+        verticalPosition: "top",
+        panelClass: isError ? ['msg-error'] : ['msg-success']
         })
   }
-
 
   // ********* CLIENTES *********
   getAllCliente(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`${this.baseURL}clientes`);
   }
-
   newCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(`${this.baseURL}clientes`, cliente);
   }
-
   clientById(ID: string): Observable<Cliente> {
     const url = `${this.baseURL}clientes/${ID}`
     return this.http.get<Cliente>(url)
   }
-
   updateClient(cliente: Cliente): Observable<Cliente>{
     const url = `${this.baseURL}clientes/${cliente.ID}`
     return this.http.patch<Cliente>(url, cliente)
   }
-
   delClient(ID: string): Observable<Cliente>{
     const url = `${this.baseURL}clientes/${ID}`
     return this.http.delete<Cliente>(url);
   }
-
-
 
   // ############ SERVIDOR ############
   getAllServer(): Observable<Servidor[]> {
@@ -84,65 +78,30 @@ export class ApiService {
     return this.http.delete<Servidor>(url);
   }
 
-
   // ********* USUÁRIO *********
   getAllUser(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.baseURL}users`);
   }
-
   newUser(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(`${this.baseURL}/users`, usuario);
   }
-
   userById(ID: string): Observable<Usuario>{
     const url = `${this.baseURL}users/${ID}`
     return this.http.get<Usuario>(url)
   }
-
   updateUser(server: Usuario): Observable<Usuario> {
     const url = `${this.baseURL}users/${server.ID}`
     return this.http.put<Usuario>(url, server)
   }
-
   delUser(ID: string): Observable<Usuario>{
     const url = `${this.baseURL}users/${ID}`
     return this.http.delete<Usuario>(url);
   }
 
 
-
-
-
   // *********  METODO DE LOGIN *********
-  // doLogin(login:string, password:string):void{
-  //   this.http.post<any>('http://localhost:3000/login/', { login: login,password:password }).subscribe(data => {
-  //     console.log("Hello:" + data.payLoad.name);
-  //   })
-  // }
-  
-
-
-  // getAll(): Observable<any> {
-  //   return this.http.get(baseUrl);
-  // }
-
-  // get(id): Observable<any> {
-  //   return this.http.get(`${baseUrl}/${id}`);
-  // }
-
-  // create(data): Observable<any> {
-  //   return this.http.post(baseUrl, data);
-  // }
-
-  // update(id, data): Observable<any> {
-  //   return this.http.put(`${baseUrl}/${id}`, data);
-  // }
-
-  // delete(id): Observable<any> {
-  //   return this.http.delete(`${baseUrl}/${id}`);
-  // }
-
-  // deleteAll(): Observable<any> {
-  //   return this.http.delete(baseUrl);
-  // }
+  doLogin(login:string, password:string): Observable<any> {
+    return this.http.post<any>(`${this.baseURL}/login`, 
+    { login: login,password:password });
+  }
 }

@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Views
-import { AccountComponent } from './views/account/account.component';
 import { AlertsComponent } from './views/alerts/alerts.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { LoginComponent } from './views/login/login.component';
@@ -33,7 +32,7 @@ import { UserFormComponent } from './components/usuario/user-form/user-form.comp
 import { MainComponent } from './components/layout/main/main.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { SidebarComponent } from './components/layout/sidebar/sidebar.component';
-import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
+// import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
 
 
 // Angular Material
@@ -76,12 +75,11 @@ import { UserUpdateComponent } from './components/usuario/user-update/user-updat
     MainComponent,
     HeaderComponent,
     SidebarComponent,
-    AuthenticationComponent,
+    // AuthenticationComponent,
     ServersComponent,
     DashboardComponent,
     TaskComponent,
     AlertsComponent,
-    AccountComponent,
     ClientFormComponent,
     ClientesComponent,
     UsersComponent,

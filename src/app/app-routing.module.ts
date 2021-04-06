@@ -10,7 +10,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './components/layout/main/main.component';
 
 //Login
-import { AccountComponent } from './views/account/account.component';
 import { LoginComponent } from './views/login/login.component';
 // import { AuthGuard } from './views/shared/auth.guard';
 
@@ -32,7 +31,7 @@ import { ServersComponent } from './views/servers/servers.component';
 import { ClientesComponent } from './views/clientes/clientes.component';
 import { UsersComponent } from './views/users/users.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
+// import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
 import { ServerDeleteComponent } from './components/server/server-delete/server-delete.component';
 
 
@@ -67,11 +66,10 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: AuthenticationComponent,
+    // component: AuthenticationComponent,
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
-      { path: 'account', component: AccountComponent }
+      { path: 'login', component: LoginComponent }
     ]
   }
 

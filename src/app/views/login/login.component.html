@@ -5,9 +5,9 @@
         <form>
 
             <p>Usuário</p>
-            <input type="text" name="" placeholder="Insira seu Usuário">
+            <input type="text" name="" placeholder="Insira seu Usuário" [(ngModel)]="login.NAME">
             <p>Senha</p>
-            <input type="password" name="" placeholder="Insira sua Senha">
+            <input  type="password" name="" placeholder="Insira sua Senha" [(ngModel)]="login.PASSWORD">
             <input (click)="doLogin()" type="submit" name="" value="Login">
         </form>
     </div>
