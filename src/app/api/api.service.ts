@@ -35,13 +35,10 @@ export class ApiService {
         panelClass: isError ? ['msg-error'] : ['msg-success']
         })
   }
-
   // *********  METODO DE LOGIN *********
   doLogin(login: Login): Observable<Login> {
     return this.http.post<Login>(`${this.baseURL}login`, login);
-
   }
-
   getHttpOptions(){
     let token = 'Bearer ' + this.accountService.getAuthorizationToken();
     let httpOptions = {
@@ -52,25 +49,24 @@ export class ApiService {
     };
     return httpOptions;
   }
-
   // ********* CLIENTES *********
   getAllCliente(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(`${this.baseURL}clientes`);
+    return this.http.get<Cliente[]>(`${this.baseURL}clientes`, this.getHttpOptions());
   }
   newCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(`${this.baseURL}clientes`, cliente);
+    return this.http.post<Cliente>(`${this.baseURL}clientes`, cliente, this.getHttpOptions());
   }
   clientById(ID: string): Observable<Cliente> {
     const url = `${this.baseURL}clientes/${ID}`
-    return this.http.get<Cliente>(url)
+    return this.http.get<Cliente>(url, this.getHttpOptions())
   }
   updateClient(cliente: Cliente): Observable<Cliente>{
     const url = `${this.baseURL}clientes/${cliente.ID}`
-    return this.http.patch<Cliente>(url, cliente)
+    return this.http.patch<Cliente>(url, cliente, this.getHttpOptions())
   }
   delClient(ID: string): Observable<Cliente>{
     const url = `${this.baseURL}clientes/${ID}`
-    return this.http.delete<Cliente>(url);
+    return this.http.delete<Cliente>(url, this.getHttpOptions());
   }
 
   // ############ SERVIDOR ############
@@ -86,31 +82,30 @@ export class ApiService {
   }
   updateServer(server: Servidor): Observable<Servidor> {
     const url = `${this.baseURL}servers/${server.ID}`
-    return this.http.patch<Servidor>(url, server)
+    return this.http.patch<Servidor>(url, server, this.getHttpOptions())
   }
   delServer(ID: string): Observable<Servidor>{
     const url = `${this.baseURL}servers/${ID}`
-    return this.http.delete<Servidor>(url);
+    return this.http.delete<Servidor>(url, this.getHttpOptions());
   }
 
   // ********* USUÁRIO *********
   getAllUser(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`${this.baseURL}users`);
+    return this.http.get<Usuario[]>(`${this.baseURL}users`, this.getHttpOptions());
   }
   newUser(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.baseURL}/users`, usuario);
+    return this.http.post<Usuario>(`${this.baseURL}/users`, usuario, this.getHttpOptions());
   }
   userById(ID: string): Observable<Usuario>{
     const url = `${this.baseURL}users/${ID}`
-    return this.http.get<Usuario>(url)
+    return this.http.get<Usuario>(url, this.getHttpOptions())
   }
   updateUser(server: Usuario): Observable<Usuario> {
     const url = `${this.baseURL}users/${server.ID}`
-    return this.http.put<Usuario>(url, server)
+    return this.http.patch<Usuario>(url, server, this.getHttpOptions())
   }
   delUser(ID: string): Observable<Usuario>{
     const url = `${this.baseURL}users/${ID}`
-    return this.http.delete<Usuario>(url);
+    return this.http.delete<Usuario>(url, this.getHttpOptions());
   }
-
 }

@@ -4,10 +4,10 @@
         <h1>Login</h1>
         <form>
             <p>Usuário</p>
-            <input type="text" name="NAME" matInput placeholder="Insira seu Usuário" 
+            <input type="text" name="name" 
             [(ngModel)]="login.name">
             <p>Senha</p>
-            <input  type="password" name="password" matInput placeholder="Insira sua Senha" 
+            <input  type="password" name="password" 
             [(ngModel)]="login.password">
             <input (click)="doLogin()" type="submit" name="" value="Login">
         </form>

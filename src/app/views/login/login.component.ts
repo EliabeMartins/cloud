@@ -24,16 +24,25 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  doLogin():void{
-    // this.auth.doLogin(this.login);
-    try{
-      this.apiService.doLogin(this.login).subscribe((result) =>{
-        this.apiService.showMessage('Login Realizado com Sucesso!');
-        this.accountService.saveAuthorizationToken(result.token)
-        this.router.navigate(['/']);
-      });
-    } catch (error) {
-      alert(error)
-    }
+  doLogin(): void {
+    this.apiService.doLogin(this.login).subscribe((result) =>{
+      this.apiService.showMessage('Login Realizado com Sucesso!');
+      this.accountService.saveAuthorizationToken(result.token)
+      this.router.navigate(['/']);
+    });
   }
+
+
+  // doLogin(): void {
+    // try{
+    //   this.apiService.doLogin(this.login).subscribe((result) =>{
+    //     this.apiService.showMessage('Login Realizado com Sucesso!');
+    //     this.accountService.saveAuthorizationToken(result.token)
+    //     this.router.navigate(['/']);
+    //   });
+    // } catch (error) {
+    //   this.apiService.showMessage('Usuario ou senha Incorreto!');
+    //   this.router.navigate(['/login']);
+    // }
+    // }
 }
