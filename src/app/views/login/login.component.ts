@@ -1,3 +1,4 @@
+import { AccountService } from './../account/account.service';
 // import { AuthService } from './auth/auth.service';
 import { Login } from './../../components/models/login.model';
 import { Component, OnInit } from '@angular/core';
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   login: Login = new Login();
 
   constructor(
+    private accountService: AccountService,
     private router: Router,
     private apiService: ApiService
     ) { }
@@ -24,9 +26,14 @@ export class LoginComponent implements OnInit {
 
   doLogin():void{
     // this.auth.doLogin(this.login);
-    this.apiService.doLogin(this.login).subscribe(() =>{
-      this.apiService.showMessage('Login Realizado com Sucesso!')
-      this.router.navigate(['/'])
-    });
+    try{
+      this.apiService.doLogin(this.login).subscribe((result) =>{
+        this.apiService.showMessage('Login Realizado com Sucesso!');
+        this.accountService.saveAuthorizationToken(result.token)
+        this.router.navigate(['/']);
+      });
+    } catch (error) {
+      alert(error)
+    }
   }
 }

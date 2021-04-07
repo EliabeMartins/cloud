@@ -52,6 +52,7 @@ import { ClientDeleteComponent } from './components/cliente/client-delete/client
 import { ServerDeleteComponent } from './components/server/server-delete/server-delete.component';
 import { ServerUpdateComponent } from './components/server/server-update/server-update.component';
 import { UserUpdateComponent } from './components/usuario/user-update/user-update.component';
+import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
 
 
 
@@ -83,7 +84,8 @@ import { UserUpdateComponent } from './components/usuario/user-update/user-updat
     ClientDeleteComponent,
     ServerDeleteComponent,
     ServerUpdateComponent,
-    UserUpdateComponent
+    UserUpdateComponent,
+    AuthenticationComponent
  
   ],
   imports: [

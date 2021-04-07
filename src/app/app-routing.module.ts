@@ -1,5 +1,4 @@
-import { UserUpdateComponent } from './components/usuario/user-update/user-update.component';
-import { ServerUpdateComponent } from './components/server/server-update/server-update.component';
+
 
 
 // Angular
@@ -11,18 +10,20 @@ import { MainComponent } from './components/layout/main/main.component';
 
 //Login
 import { LoginComponent } from './views/login/login.component';
-// import { AuthService } from './views/login/auth/auth.service';
+import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
 
 // Servidor
 import { ServerFormComponent } from './components/server/server-form/server-form.component';
+import { ServerUpdateComponent } from './components/server/server-update/server-update.component';
 
 // Cliente
-import{ ClientFormComponent } from './components/cliente/client-form/client-form.component';
+import { ClientFormComponent } from './components/cliente/client-form/client-form.component';
 import { ClientUpdateComponent } from './components/cliente/client-update/client-update.component';
 import { ClientDeleteComponent } from './components/cliente/client-delete/client-delete.component';
 
 // Usuário
 import { UserFormComponent } from './components/usuario/user-form/user-form.component';
+import { UserUpdateComponent } from './components/usuario/user-update/user-update.component';
 
 //Views
 import { AlertsComponent } from './views/alerts/alerts.component';
@@ -32,6 +33,8 @@ import { ClientesComponent } from './views/clientes/clientes.component';
 import { UsersComponent } from './views/users/users.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { ServerDeleteComponent } from './components/server/server-delete/server-delete.component';
+import { AuthGuard } from './views/account/auth.guard';
+
 
 
 const routes: Routes = [
@@ -60,12 +63,12 @@ const routes: Routes = [
       {  path: 'update/user/:id', component: UserUpdateComponent},
       
       
-    ],
+    ]
     // canActivate: [AuthGuard]
   },
   {
     path: '',
-    // component: AuthService,
+    component: AuthenticationComponent,
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'login', component: LoginComponent }

@@ -1,3 +1,4 @@
+import { AccountService } from './../views/account/account.service';
 import { Login } from './../components/models/login.model';
 
 import { Injectable } from '@angular/core';
@@ -11,6 +12,7 @@ import { Usuario } from '../components/models/usuario.model';
 import { Servidor } from '../components/models/servidor.model';
 import { Cliente } from '../components/models/cliente.model';
 
+
 @Injectable({
     providedIn: 'root'
   })
@@ -19,13 +21,8 @@ export class ApiService {
 
     baseURL = 'http://localhost:3000/';
 
-    httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-
     constructor(
+        private accountService: AccountService,
         private http: HttpClient,
         private snackBar: MatSnackBar) { }
 
@@ -37,6 +34,23 @@ export class ApiService {
         verticalPosition: "top",
         panelClass: isError ? ['msg-error'] : ['msg-success']
         })
+  }
+
+  // *********  METODO DE LOGIN *********
+  doLogin(login: Login): Observable<Login> {
+    return this.http.post<Login>(`${this.baseURL}login`, login);
+
+  }
+
+  getHttpOptions(){
+    let token = 'Bearer ' + this.accountService.getAuthorizationToken();
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': token
+      })
+    };
+    return httpOptions;
   }
 
   // ********* CLIENTES *********
@@ -61,10 +75,10 @@ export class ApiService {
 
   // ############ SERVIDOR ############
   getAllServer(): Observable<Servidor[]> {
-    return this.http.get<Servidor[]>(`${this.baseURL}servers`);
+    return this.http.get<Servidor[]>(`${this.baseURL}servers`, this.getHttpOptions());
   }
   newServer(server: Servidor): Observable<Servidor> {
-    return this.http.post<Servidor>(`${this.baseURL}servers`, server);
+    return this.http.post<Servidor>(`${this.baseURL}servers`, server, this.getHttpOptions());
   }
   serverById(ID: string): Observable<Servidor>{
     const url = `${this.baseURL}servers/${ID}`
@@ -99,9 +113,4 @@ export class ApiService {
     return this.http.delete<Usuario>(url);
   }
 
-
-  // *********  METODO DE LOGIN *********
-  doLogin(login: Login): Observable<Login> {
-    return this.http.post<Login>(`${this.baseURL}login`, login);
-  }
 }
