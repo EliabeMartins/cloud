@@ -1,5 +1,4 @@
 import { AccountService } from './../account/account.service';
-// import { AuthService } from './auth/auth.service';
 import { Login } from './../../components/models/login.model';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../../api/api.service';
@@ -13,8 +12,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
 
-  login: Login = new Login();
+  // login: Login = new Login();
 
+  login: Login = {
+    name: '',
+    password: ''
+    // token: ''
+  }
   constructor(
     private accountService: AccountService,
     private router: Router,
@@ -25,24 +29,21 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin(): void {
-    this.apiService.doLogin(this.login).subscribe((result) =>{
-      this.apiService.showMessage('Login Realizado com Sucesso!');
-      this.accountService.saveAuthorizationToken(result.token)
-      this.router.navigate(['/']);
-    });
+    if (this.login.name === "") {
+      this.apiService.showMessage('INFORME NOME DE USUÁRIO')
+    } else {
+      if(this.login.password === ""){
+        this.apiService.showMessage('INFORME SENHA PARA CONTINUAR')
+        this.router.navigate(['/login']);
+      } else {
+        this.apiService.doLogin(this.login).subscribe((result) =>{
+          this.apiService.showMessage('Login Realizado com Sucesso!');
+          this.accountService.saveAuthorizationToken(result.token)
+          this.router.navigate(['/']);
+        });
+      }
+    }
   }
 
 
-  // doLogin(): void {
-    // try{
-    //   this.apiService.doLogin(this.login).subscribe((result) =>{
-    //     this.apiService.showMessage('Login Realizado com Sucesso!');
-    //     this.accountService.saveAuthorizationToken(result.token)
-    //     this.router.navigate(['/']);
-    //   });
-    // } catch (error) {
-    //   this.apiService.showMessage('Usuario ou senha Incorreto!');
-    //   this.router.navigate(['/login']);
-    // }
-    // }
 }

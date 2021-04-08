@@ -23,6 +23,22 @@ export class UserFormComponent implements OnInit {
   }
 
   novoUsuario(): void {
+    if (this.usuario.NAME === "") {
+      this.apiService.showMessage('Informe Nome')
+    } else {
+      if(this.usuario.EMAIL === ""){
+        this.apiService.showMessage('Informe email')
+      } else {
+        if (this.usuario.PASSWORD === "") {
+          this.apiService.showMessage('EU SOU UMA PIADA PARA VOCÊ?')
+        } else {
+          this.apiService.newUser(this.usuario).subscribe(() =>{
+            this.apiService.showMessage('Usuário Cadastrado Com Sucesso!')
+            this.router.navigate(['/users'])
+              });
+        }
+      }
+    }
     this.apiService.newUser(this.usuario).subscribe(() =>{
       this.apiService.showMessage('Usuário Cadastrado Com Sucesso!')
       this.router.navigate(['/users'])

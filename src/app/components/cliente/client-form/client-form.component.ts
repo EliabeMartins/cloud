@@ -1,3 +1,4 @@
+// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -13,8 +14,9 @@ import { ApiService } from './../../../api/api.service';
 })
 export class ClientFormComponent implements OnInit {
 
-  // cliente!: Cliente
+  // cliente!: Cliente;
   
+
   cliente: Cliente = {
     ID:'',
     NAME: '',
@@ -30,10 +32,18 @@ export class ClientFormComponent implements OnInit {
   }
 
   novoCliente(): void {
-    this.apiService.newCliente(this.cliente).subscribe(() =>{
-      this.apiService.showMessage('Cliente Cadastrado Com Sucesso!')
-      this.router.navigate(['/clientes'])
-    })
+    if (this.cliente.NAME === "") {
+      this.apiService.showMessage('Informe Nome')
+    } else {
+      if(this.cliente.EMAIL === ""){
+        this.apiService.showMessage('Informe email')
+      } else {
+        this.apiService.newCliente(this.cliente).subscribe(() =>{
+          this.apiService.showMessage('Cliente Cadastrado Com Sucesso!')
+          this.router.navigate(['/clientes'])
+            });
+      }
+    }
   }
 
   cancel(): void {

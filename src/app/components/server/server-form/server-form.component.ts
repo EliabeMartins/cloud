@@ -30,13 +30,19 @@ export class ServerFormComponent implements OnInit {
   }
 
   novoServidor(): void {
-     
-    this.apiService.newServer(this.server).subscribe(() =>{
-      this.apiService.showMessage('Servidor Cadastrado Com Sucesso!')
-      this.router.navigate(['/servers'])
-    })
+    if (this.server.NAME === "") {
+      this.apiService.showMessage('Informe Nome do servidor')
+    } else {
+      if(this.server.IP === ""){
+        this.apiService.showMessage('Informe IP do Servidor')
+      } else {
+        this.apiService.newServer(this.server).subscribe(() =>{
+          this.apiService.showMessage('Servidor Cadastrado Com Sucesso!')
+          this.router.navigate(['/servers'])
+        })
+      }
+    }
   }
-
   cancel(): void {
     this.router.navigate(['/servers'])
   }

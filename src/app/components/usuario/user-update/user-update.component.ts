@@ -10,13 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserUpdateComponent implements OnInit {
   
-  usuario!: Usuario 
+  // usuario!: Usuario 
 
-  // usuario: Usuario = {
-  //   NAME: '',
-  //   EMAIL: '',
-  //   PASSWORD: ''
-  // }
+  usuario: Usuario = {
+    NAME: '',
+    EMAIL: '',
+    PASSWORD: ''
+  }
 
   constructor(
     private apiService: ApiService,
@@ -31,7 +31,8 @@ export class UserUpdateComponent implements OnInit {
   }
   
   AtualizarUsuario(): void {
-    this.apiService.newUser(this.usuario).subscribe(() =>{
+    console.log(this.usuario);
+    this.apiService.updateUser(this.usuario).subscribe(() =>{
       this.apiService.showMessage('Usuário Atualizado Com Sucesso!')
       this.router.navigate(['/users'])
     })

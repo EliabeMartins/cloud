@@ -27,12 +27,12 @@ export class ApiService {
         private snackBar: MatSnackBar) { }
 
    // NOTIFICAÇÃO DE CRIAÇÃO 
-    showMessage(msg: string, isError: boolean = false): void {
+    showMessage(msg: string): void {
         this.snackBar.open(msg,  '', {
         duration: 3000,
         horizontalPosition: "right",
-        verticalPosition: "top",
-        panelClass: isError ? ['msg-error'] : ['msg-success']
+        verticalPosition: "top"
+        // panelClass: isError ? ['msg-error'] : ['msg-success']
         })
   }
   // *********  METODO DE LOGIN *********
@@ -94,7 +94,7 @@ export class ApiService {
     return this.http.get<Usuario[]>(`${this.baseURL}users`, this.getHttpOptions());
   }
   newUser(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`${this.baseURL}/users`, usuario, this.getHttpOptions());
+    return this.http.post<Usuario>(`${this.baseURL}users`, usuario, this.getHttpOptions());
   }
   userById(ID: string): Observable<Usuario>{
     const url = `${this.baseURL}users/${ID}`
