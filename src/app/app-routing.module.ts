@@ -1,6 +1,8 @@
 
 
 
+
+
 // Angular
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -24,6 +26,7 @@ import { ClientDeleteComponent } from './components/cliente/client-delete/client
 // Usuário
 import { UserFormComponent } from './components/usuario/user-form/user-form.component';
 import { UserUpdateComponent } from './components/usuario/user-update/user-update.component';
+import { UserDeleteComponent } from './components/usuario/user-delete/user-delete.component';
 
 //Views
 import { AlertsComponent } from './views/alerts/alerts.component';
@@ -35,6 +38,9 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { ServerDeleteComponent } from './components/server/server-delete/server-delete.component';
 import { AuthGuard } from './views/account/auth.guard';
 
+import { DominioFormComponent } from './components/dominio/dominio-form/dominio-form.component';
+import { DominioListComponent } from './components/dominio/dominio-list/dominio-list.component';
+import { DominioDeleteComponent } from './components/dominio/dominio-delete/dominio-delete.component';
 
 
 const routes: Routes = [
@@ -58,9 +64,15 @@ const routes: Routes = [
       {  path: 'update/cliente/:id', component: ClientUpdateComponent },
       {  path: 'delete/cliente/:id', component: ClientDeleteComponent },
 
+      { path: 'dominios', component: DominioListComponent },
+      { path: 'new/dominio', component: DominioFormComponent },
+      { path: 'delete/dominio/:id', component: DominioDeleteComponent },
       
       {  path: 'new/user', component: UserFormComponent },
-      {  path: 'update/user/:id', component: UserUpdateComponent},
+      {  path: 'update/user/:id', component: UserUpdateComponent },
+      {  path: 'delete/user/:id', component: UserDeleteComponent },
+
+
       
       
     ]

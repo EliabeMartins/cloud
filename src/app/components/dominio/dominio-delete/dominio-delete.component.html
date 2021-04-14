@@ -1,0 +1,52 @@
+<mat-card>
+    <mat-card-title>Excluir Domínio</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="ID" 
+            [value]="dominio.ID" name="id" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="DOMINIO" 
+            [value]="dominio.DOMINIO" name="" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="NOME DE USUÁRIO" 
+            [value]="dominio.NAME_USER" disabled>
+        </mat-form-field>
+
+        <!-- <mat-form-field>
+            <input matInput placeholder="PASSWORD DE USUÁRIO"
+            [value]="dominio.PASSWORD_USER" name="tel" disabled>
+        </mat-form-field> -->
+
+        <mat-form-field>
+            <input matInput placeholder="IP BD"
+            [value]="dominio.IP_BD" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="NOME DO BD"
+            [value]="dominio.NAME_BD" disabled>
+        </mat-form-field>
+
+        <!-- <mat-form-field>
+            <input matInput placeholder="PASSWORD DO BD"
+            [value]="dominio.PASSWORD_BD" name="tel" disabled>
+        </mat-form-field> -->
+
+    </form>
+    
+    
+    <button mat-raised-button (click)="DeletarDominio()" color="warn">
+        Excluir
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
+
+
+

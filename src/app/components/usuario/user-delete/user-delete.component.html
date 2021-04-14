@@ -1,25 +1,25 @@
 <mat-card>
-    <mat-card-title>Atualizar Usuário</mat-card-title>
+    <mat-card-title>Deletar Usuário</mat-card-title>
     <form>
         <mat-form-field>
             <input matInput placeholder="Name" 
-            [(ngModel)]="usuario.NAME" name="name">
+            [(ngModel)]="usuario.NAME" name="name" disabled>
         </mat-form-field>
 
         <mat-form-field>
             <input matInput placeholder="Email" 
-            [(ngModel)]="usuario.EMAIL" name="email">
+            [(ngModel)]="usuario.EMAIL" name="email" disabled>
         </mat-form-field>
 
-        <mat-form-field>
+        <!-- <mat-form-field>
             <input matInput placeholder="Senha"
             [(ngModel)]="usuario.PASSWORD" name="password">
-        </mat-form-field>
+        </mat-form-field> -->
     </form>
     
     
-    <button mat-raised-button (click)="AtualizarUsuario()" color="accent">
-        Atualizar
+    <button mat-raised-button (click)="DeletarUsuario()" color="accent">
+        Deletar
     </button>
     
     <button mat-raised-button (click)="cancel()">

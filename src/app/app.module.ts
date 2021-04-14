@@ -53,6 +53,10 @@ import { ServerDeleteComponent } from './components/server/server-delete/server-
 import { ServerUpdateComponent } from './components/server/server-update/server-update.component';
 import { UserUpdateComponent } from './components/usuario/user-update/user-update.component';
 import { AuthenticationComponent } from './components/layout/authentication/authentication.component';
+import { UserDeleteComponent } from './components/usuario/user-delete/user-delete.component';
+import { DominioFormComponent } from './components/dominio/dominio-form/dominio-form.component';
+import { DominioListComponent } from './components/dominio/dominio-list/dominio-list.component';
+import { DominioDeleteComponent } from './components/dominio/dominio-delete/dominio-delete.component';
 
 
 
@@ -85,7 +89,11 @@ import { AuthenticationComponent } from './components/layout/authentication/auth
     ServerDeleteComponent,
     ServerUpdateComponent,
     UserUpdateComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    UserDeleteComponent,
+    DominioFormComponent,
+    DominioListComponent,
+    DominioDeleteComponent
  
   ],
   imports: [

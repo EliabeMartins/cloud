@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from './../../components/models/usuario.model';
 import { ApiService } from './../../api/api.service';
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',

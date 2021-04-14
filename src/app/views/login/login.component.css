@@ -1,8 +1,8 @@
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #0066ff 0%, #cc66ff 100%);
-    /* background-image: url(/assets/img/1.jpg); */
+    /* background: linear-gradient(to bottom, #0066ff 0%, #cc66ff 100%); */
+    background-image: url(/assets/img/1.jpg);
     background-size: cover;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

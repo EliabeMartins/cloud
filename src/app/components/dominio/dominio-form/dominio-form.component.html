@@ -1,0 +1,50 @@
+<mat-card>
+    <mat-card-title>Novo Domínio</mat-card-title>
+    <form class="form-group">
+        
+        <mat-form-field>
+            <input matInput placeholder="Domínio" 
+            [(ngModel)]="dominio.DOMINIO" name="DOMÍNIO" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Name de Usuário" 
+            [(ngModel)]="dominio.NAME_USER" name="NOME DE USUÁRIO" required>
+        </mat-form-field>
+    
+    <mat-form-field>
+        <input type="password" matInput placeholder="Senha de Usuario"
+        [(ngModel)]="dominio.PASSWORD_USER" name="password">
+    </mat-form-field>
+    
+
+
+
+    <mat-form-field>
+        <input matInput placeholder="IP Banco" 
+        [(ngModel)]="dominio.IP_BD"name="IP DO BD" required>
+    </mat-form-field>
+    
+    <mat-form-field>
+        <input matInput placeholder="Nome do Banco" 
+        [(ngModel)]="dominio.NAME_BD"name="Nome do BD" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="password" matInput placeholder="Senha do Banco"
+        [(ngModel)]="dominio.PASSWORD_BD"name="password">
+    </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="novoDominio()" color="primary">
+        <!-- Cadastrar  -->
+        Domínio
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
+
+
+

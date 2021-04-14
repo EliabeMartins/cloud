@@ -1,3 +1,4 @@
+
 import { AccountService } from './../views/account/account.service';
 import { Login } from './../components/models/login.model';
 
@@ -11,6 +12,7 @@ import { tap } from 'rxjs/operators';
 import { Usuario } from '../components/models/usuario.model';
 import { Servidor } from '../components/models/servidor.model';
 import { Cliente } from '../components/models/cliente.model';
+import { Dominio } from '../components/models/dominio.model';
 
 
 @Injectable({
@@ -89,6 +91,25 @@ export class ApiService {
     return this.http.delete<Servidor>(url, this.getHttpOptions());
   }
 
+  // ############ DOMÍNIOS ############
+  getAllDominios(): Observable<Dominio[]> {
+    return this.http.get<Dominio[]>(`${this.baseURL}dominios`);
+  }
+  newDominio(dominio: Dominio): Observable<Dominio> {
+    return this.http.post<Dominio>(`${this.baseURL}dominios`, dominio);
+  }
+  dominioById(ID: string): Observable<Dominio>{
+    const url = `${this.baseURL}dominios/${ID}`
+    return this.http.get<Dominio>(url)
+  }
+  delDominio(ID: string): Observable<Dominio>{
+    const url = `${this.baseURL}dominios/${ID}`
+    return this.http.delete<Dominio>(url);
+  }
+
+
+
+  
   // ********* USUÁRIO *********
   getAllUser(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`${this.baseURL}users`, this.getHttpOptions());

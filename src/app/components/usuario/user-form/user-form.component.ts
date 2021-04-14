@@ -39,10 +39,10 @@ export class UserFormComponent implements OnInit {
         }
       }
     }
-    this.apiService.newUser(this.usuario).subscribe(() =>{
-      this.apiService.showMessage('Usuário Cadastrado Com Sucesso!')
-      this.router.navigate(['/users'])
-    })
+    // this.apiService.newUser(this.usuario).subscribe(() =>{
+    //   this.apiService.showMessage('Usuário Cadastrado Com Sucesso!')
+    //   this.router.navigate(['/users'])
+    // });
   }
 
   cancel(): void {
