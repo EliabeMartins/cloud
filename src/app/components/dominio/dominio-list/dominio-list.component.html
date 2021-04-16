@@ -2,32 +2,36 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dominios" class="full-width-table">
     
-      <ng-container matColumnDef="id">
+      <!-- <ng-container matColumnDef="ID">
         <th mat-header-cell *matHeaderCellDef>ID</th>
         <td mat-cell *matCellDef="let row">{{row.ID}}</td>
-      </ng-container>
+      </ng-container> -->
   
       
-      <ng-container matColumnDef="dominio">
+      <ng-container matColumnDef="DOMINIO">
         <th mat-header-cell *matHeaderCellDef>DOMINIOS</th>
         <td mat-cell *matCellDef="let row">{{row.DOMINIO}}</td>
       </ng-container>
   
      
-      <!-- <ng-container matColumnDef="username">
-        <th mat-header-cell *matHeaderCellDef>USER NAME</th>
+      <ng-container matColumnDef="USER_N">
+        <th mat-header-cell *matHeaderCellDef>NOME DE USUÁRIO</th>
         <td mat-cell *matCellDef="let row">{{row.NAMEUSER}}</td>
-      </ng-container> -->
+      </ng-container>
 
       
-      <ng-container matColumnDef="dbserver">
-        <th mat-header-cell *matHeaderCellDef>DB SERVER</th>
-        <td mat-cell *matCellDef="let row">{{row.IP_BD}}</td>
+      <ng-container matColumnDef="IP_DB">
+        <th mat-header-cell *matHeaderCellDef>IP DO DB</th>
+        <td mat-cell *matCellDef="let row">{{row.IPBD}}</td>
       </ng-container>
   
-  
-   
-      <ng-container matColumnDef="action">
+      <ng-container matColumnDef="N_DB">
+        <th mat-header-cell *matHeaderCellDef>NOME DB</th>
+        <td mat-cell *matCellDef="let row">{{row.NAMEBD}}</td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="ACTION">
         <th mat-header-cell *matHeaderCellDef>AÇÃO</th>
         <td mat-cell *matCellDef="let row">
           <!-- <a routerLink="/update/dominio/{{ row.ID }}" mat-mini-fab class="edit">

@@ -92,8 +92,9 @@ export class ApiService {
   }
 
   // ############ DOMÍNIOS ############
-  getAllDominios(): Observable<Dominio[]> {
-    return this.http.get<Dominio[]>(`${this.baseURL}dominios`);
+  getAllDominios(IDSERVER: string): Observable<Dominio[]> {
+    const url = `${this.baseURL}dominios/${IDSERVER}`
+    return this.http.get<Dominio[]>(url)
   }
   newDominio(dominio: Dominio): Observable<Dominio> {
     return this.http.post<Dominio>(`${this.baseURL}dominios`, dominio);
@@ -102,10 +103,16 @@ export class ApiService {
     const url = `${this.baseURL}dominios/${ID}`
     return this.http.get<Dominio>(url)
   }
-  delDominio(ID: string): Observable<Dominio>{
-    const url = `${this.baseURL}dominios/${ID}`
-    return this.http.delete<Dominio>(url);
+  delDominio(IDSERVER: string): Observable<Dominio[]>{
+    const url = `${this.baseURL}dominios/${IDSERVER}`
+    return this.http.delete<Dominio[]>(url);
   }
+
+
+  // delDominio(ID: string): Observable<Dominio>{
+  //   const url = `${this.baseURL}dominios/${ID}`
+  //   return this.http.delete<Dominio>(url);
+  // }
 
 
 

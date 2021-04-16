@@ -11,16 +11,17 @@ import { Component, OnInit } from '@angular/core';
 export class DominioDeleteComponent implements OnInit {
 
   
-  // dominio!: Dominio;
+  // dominios!: Dominio[];
 
   dominio: Dominio = {
     ID: '',
+    IDSERVER: '',
     DOMINIO: '',
-    NAME_USER: '',
-    PASSWORD_USER: '',
-    IP_BD: '',
-    NAME_BD: '',
-    PASSWORD_BD: '',
+    NAMEUSER: '',
+    PASSWORDUSER: '',
+    IPBD: '',
+    NAMEBD: '',
+    PASSWORDBD: '',
   }
 
 

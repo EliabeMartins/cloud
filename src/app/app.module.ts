@@ -57,6 +57,7 @@ import { UserDeleteComponent } from './components/usuario/user-delete/user-delet
 import { DominioFormComponent } from './components/dominio/dominio-form/dominio-form.component';
 import { DominioListComponent } from './components/dominio/dominio-list/dominio-list.component';
 import { DominioDeleteComponent } from './components/dominio/dominio-delete/dominio-delete.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 
@@ -115,7 +116,8 @@ import { DominioDeleteComponent } from './components/dominio/dominio-delete/domi
     MatInputModule,
     MatDividerModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import { ApiService } from './../../../api/api.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Dominio } from '../../models/dominio.model';
 
@@ -11,19 +11,25 @@ import { Dominio } from '../../models/dominio.model';
 export class DominioListComponent implements OnInit {
 
   dominios!: Dominio[];
-  displayedColumns = ['id', 'dominio', 'dbserver', 'action'];
+  
+  displayedColumns = ['DOMINIO', 'USER_N', 'IP_DB', 'N_DB', 'ACTION'];
+  // displayedColumns = ['ID', 'DOMINIO', 'USER_N', 'IP_DB', 'N_DB', 'ACTION'];
 
   constructor(
     private apiService: ApiService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.apiService.getAllDominios().subscribe(
-      dominios => this.dominios = dominios)
+    let IDSERVER = this.route.snapshot.paramMap.get('id')
+    this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
+      dominios => this.dominios = dominios);
+      console.log(`estou no server ${IDSERVER}`);
   }
 
   navigateToCreateDominio(): void {
-    this.router.navigate(['new/dominio'])
+    let IDSERVER = this.route.snapshot.paramMap.get('id')
+    this.router.navigate([`${IDSERVER}/new/dominio`])
   }
 
   cancel(): void {
