@@ -1,3 +1,4 @@
+import { Servidor } from './../../models/servidor.model';
 import { Dominio } from './../../models/dominio.model';
 import { ApiService } from './../../../api/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,6 +12,11 @@ import { Component, OnInit } from '@angular/core';
 
 export class DominioFormComponent implements OnInit {
 
+  servidor: Servidor = {
+    IP: '',
+    NAME: ''
+  }
+  
   dominios!: Dominio[];
 
   dominio: Dominio = {
@@ -34,10 +40,14 @@ export class DominioFormComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    let SERVIDOR = this.route.snapshot.paramMap.get('id');
+    this.apiService.serverById(`${SERVIDOR}`).subscribe(
+      servidor => this.servidor = servidor);
+
+
     let IDSERVER = this.route.snapshot.paramMap.get('id');
     this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
       dominios => this.dominios = dominios);
-      // console.log(`estou no server ${IDSERVER}`);
   }
 
   novoDominio(): void {
