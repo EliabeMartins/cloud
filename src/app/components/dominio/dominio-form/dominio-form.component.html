@@ -21,9 +21,13 @@
             <input matInput placeholder="Domínio" 
             [(ngModel)]="dominio.DOMINIO" name="DOMÍNIO" required>
         </mat-form-field>
-
-        <mat-slide-toggle [(ngModel)]="dominio.SSL" name="SSL">SSL</mat-slide-toggle>
+    
+        <mat-list>
+            <mat-slide-toggle [(ngModel)]="dominio.SSL" name="SSL">SSL</mat-slide-toggle> <br>
+            <!-- <mat-slide-toggle [(ngModel)]="dominio.DATABASE" name="DATABASE">Banco de Dados</mat-slide-toggle> -->
+        </mat-list>
         
+
         <mat-form-field>
             <input matInput placeholder="Name de Usuário" 
             [(ngModel)]="dominio.NAMEUSER" name="NOME DE USUÁRIO" required>
@@ -31,9 +35,15 @@
     
         <mat-form-field>
             <input type="password" matInput placeholder="Senha de Usuario"
-            [(ngModel)]="dominio.PASSWORDUSER" name="password">
+            [(ngModel)]="dominio.PASSWORDUSER" name="password" required>
         </mat-form-field>
         
+
+        <mat-list>
+            <!-- <mat-slide-toggle [(ngModel)]="dominio.SSL" name="SSL">SSL</mat-slide-toggle> <br> -->
+            <mat-slide-toggle [(ngModel)]="dominio.DATABASE" name="DATABASE">Banco de Dados</mat-slide-toggle>
+        </mat-list>
+
         <mat-form-field>
             <input matInput placeholder="IP Banco" 
             [(ngModel)]="dominio.IPBD"name="IP DO BD" required>
@@ -46,7 +56,7 @@
 
         <mat-form-field>
             <input type="password" matInput placeholder="Senha do Banco"
-            [(ngModel)]="dominio.PASSWORDBD" name="password">
+            [(ngModel)]="dominio.PASSWORDBD" name="password" required>
         </mat-form-field>
 
         <!-- <mat-slide-toggle [(ngModel)]="dominio.INSTALLWP" name="installwp">Instalar WP</mat-slide-toggle> -->

@@ -10,4 +10,5 @@ export interface Dominio {
     PASSWORDBD?: string,
     INSTALLWP?: boolean,
     SSL?: boolean
+    DATABASE?: boolean
 }

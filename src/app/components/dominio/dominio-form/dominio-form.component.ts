@@ -30,7 +30,7 @@ export class DominioFormComponent implements OnInit {
     PASSWORDBD: '',
     INSTALLWP: false,
     SSL: false,
-    // DATABASE: false
+    DATABASE: false
 
   }
 
@@ -63,23 +63,35 @@ export class DominioFormComponent implements OnInit {
           if (this.dominio.PASSWORDUSER === "") {
             this.apiService.showMessage('Por favor Informe Senha para o Usuário!');
           } else {
-            if (this.dominio.IPBD === "") {
-              this.apiService.showMessage('Informe o IP do Banco de Dados');
-            } else {
-              if (this.dominio.NAMEBD === "") {
-                this.apiService.showMessage('Informe o Nome do Banco');
-              } else {
-                if (this.dominio.PASSWORDBD === "") {
-                  this.apiService.showMessage('Por favor Informe Senha para o Banco de Dados');
-                } else {
-                  let IDSERVER = this.route.snapshot.paramMap.get('id');
-                  this.apiService.newDominio(this.dominio).subscribe(() =>{
-                  this.router.navigate([`${IDSERVER}/dominios`]);
-                  this.apiService.showMessage('Dominio Criado com Sucesso!');
-                  });
-                }
-              }
-            }
+                  if (this.dominio.DATABASE === false) {
+                    let IDSERVER = this.route.snapshot.paramMap.get('id');
+                    this.apiService.newDominio(this.dominio).subscribe(() =>{
+                    this.router.navigate([`${IDSERVER}/dominios`]);
+                    this.apiService.showMessage('Dominio Criado com Sucesso!');
+                    });
+                  } else {
+                    if (this.dominio.IPBD === "") {
+                      this.apiService.showMessage('Informe o IP do Banco de Dados');
+                    } else {
+                      if (this.dominio.NAMEBD === "") {
+                        this.apiService.showMessage('Informe o Nome do Banco');
+                      } else {
+                        if (this.dominio.PASSWORDBD === "") {
+                          this.apiService.showMessage('Por favor Informe Senha para o Banco de Dados');
+                        } else {
+                          if (this.dominio.IDSERVER === "") {
+                            this.apiService.showMessage('Informe ID do servidor para continuar');
+                          } else {
+                            let IDSERVER = this.route.snapshot.paramMap.get('id');
+                            this.apiService.newDominio(this.dominio).subscribe(() =>{
+                            this.router.navigate([`${IDSERVER}/dominios`]);
+                            this.apiService.showMessage('Dominio Criado com Sucesso!');
+                          });
+                          }
+                        }
+                      }
+                    }
+                  }
           }
         }
       }

@@ -24,7 +24,7 @@ export class DominioListComponent implements OnInit {
     let IDSERVER = this.route.snapshot.paramMap.get('id')
     this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
       dominios => this.dominios = dominios);
-      console.log(`estou no server ${IDSERVER}`);
+      // console.log(`estou no server ${IDSERVER}`);
   }
 
   navigateToCreateDominio(): void {
