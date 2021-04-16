@@ -60,10 +60,11 @@ const routes: Routes = [
       {  path: 'update/server/:id', component: ServerUpdateComponent },
       {  path: 'delete/server/:id', component: ServerDeleteComponent },
       
-      { path: ':id/dominios', component: DominioListComponent },
+      { path: ':idd/dominios', component: DominioListComponent },
       { path: ':id/new/dominio', component: DominioFormComponent },
-      { path: 'delete/dominio/:id', component: DominioDeleteComponent }, 
-      
+      { path: ':idd/delete/dominio', component: DominioDeleteComponent }, 
+      // { path: ':id/delete/dominio/:id', component: DominioDeleteComponent }, 
+
       {  path: 'new/cliente', component: ClientFormComponent },
       {  path: 'update/cliente/:id', component: ClientUpdateComponent },
       {  path: 'delete/cliente/:id', component: ClientDeleteComponent },

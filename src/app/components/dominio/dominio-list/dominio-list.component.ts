@@ -11,8 +11,13 @@ import { Dominio } from '../../models/dominio.model';
 export class DominioListComponent implements OnInit {
 
   dominios!: Dominio[];
+
+  dominio: Dominio = {
+    ID:'',
+    IDSERVER:''
+  }
   
-  displayedColumns = ['DOMINIO', 'USER_N', 'IP_DB', 'N_DB', 'ACTION'];
+  displayedColumns = ['DOMINIO', 'USER_N', 'IP_DB', 'N_DB'];
   // displayedColumns = ['ID', 'DOMINIO', 'USER_N', 'IP_DB', 'N_DB', 'ACTION'];
 
   constructor(
@@ -21,18 +26,28 @@ export class DominioListComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let IDSERVER = this.route.snapshot.paramMap.get('id')
+
+    // let DOMINIO =  this.route.snapshot.paramMap.get('id')
+    //   this.apiService.dominioById(`${DOMINIO}`).subscribe(
+    //     dominio =>  this.dominio = dominio);
+
+    let IDSERVER = this.route.snapshot.paramMap.get('idd')
     this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
       dominios => this.dominios = dominios);
       // console.log(`estou no server ${IDSERVER}`);
   }
 
   navigateToCreateDominio(): void {
-    let IDSERVER = this.route.snapshot.paramMap.get('id')
+    let IDSERVER = this.route.snapshot.paramMap.get('idd')
     this.router.navigate([`${IDSERVER}/new/dominio`])
   }
 
   cancel(): void {
     this.router.navigate(['/servers']);
+  }
+
+  delete(): void {
+    let IDSERVER = this.route.snapshot.paramMap.get('idd')
+    this.router.navigate([`${IDSERVER}/delete/dominio`])
   }
 }

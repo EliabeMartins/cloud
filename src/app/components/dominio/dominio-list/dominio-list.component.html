@@ -31,20 +31,27 @@
       </ng-container>
 
 
-      <ng-container matColumnDef="ACTION">
+      <!-- <ng-container matColumnDef="ACTION">
         <th mat-header-cell *matHeaderCellDef>AÇÃO</th>
         <td mat-cell *matCellDef="let row">
-          <!-- <a routerLink="/update/dominio/{{ row.ID }}" mat-mini-fab class="edit">
+          
+        </td>
+      </ng-container> -->
+
+      <!-- <a routerLink="/update/dominio/{{ row.ID }}" mat-mini-fab class="edit">
             <i class="material-icons">edit</i>
           </a> -->
-          <a routerLink="/delete/dominio/{{ row.ID }}" mat-mini-fab class="delet">
+          <!-- <a routerLink="/{{row.ID}}/delete/dominio/{{row.DOMINIO}}" mat-mini-fab class="delet">
             <i class="material-icons">delete</i>
-          </a>
+          </a> -->
+
+          <!-- <a routerLink="#" (click)="delete()" mat-mini-fab class="delet">
+            <i class="material-icons">delete</i>
+          </a> -->
+
           <!-- <a routerLink="/dominios" mat-mini-fab class="ler">
             <i class="material-icons">menu</i>
           </a> -->
-        </td>
-      </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

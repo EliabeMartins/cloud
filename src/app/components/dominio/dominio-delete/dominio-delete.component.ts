@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class DominioDeleteComponent implements OnInit {
 
   
-  // dominios!: Dominio[];
+  dominios!: Dominio[];
 
   dominio: Dominio = {
     ID: '',
@@ -31,6 +31,10 @@ export class DominioDeleteComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    let IDSERVER = this.route.snapshot.paramMap.get('idd')
+    this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
+      dominios => this.dominios = dominios);
+
     let ID = this.route.snapshot.paramMap.get('id')
     this.apiService.dominioById(`${ID}`).subscribe(dominio => {
       this.dominio = dominio;
@@ -46,6 +50,7 @@ export class DominioDeleteComponent implements OnInit {
   }
 
   cancel(): void {
-    this.router.navigate(['/dominios']);
+    let IDSERVER = this.route.snapshot.paramMap.get('idd')
+    this.router.navigate([`${IDSERVER}/dominios`]);
   }
 }

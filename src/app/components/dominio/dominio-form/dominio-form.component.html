@@ -14,7 +14,7 @@
         </mat-form-field> -->
 
         <mat-form-field>
-            <input matInput placeholder="IDSERVER" [(ngModel)]="dominio.IDSERVER" name="IDSERVER">
+            <input matInput placeholder="IDSERVER" [value]="servidor.ID" name="IDSERVER" disabled>
         </mat-form-field>
 
         <mat-form-field>
@@ -34,7 +34,7 @@
         </mat-form-field>
     
         <mat-form-field>
-            <input type="password" matInput placeholder="Senha de Usuario"
+            <input matInput placeholder="Senha de Usuario"
             [(ngModel)]="dominio.PASSWORDUSER" name="password" required>
         </mat-form-field>
         
@@ -55,7 +55,7 @@
         </mat-form-field>
 
         <mat-form-field>
-            <input type="password" matInput placeholder="Senha do Banco"
+            <input matInput placeholder="Senha do Banco"
             [(ngModel)]="dominio.PASSWORDBD" name="password" required>
         </mat-form-field>
 

@@ -43,9 +43,9 @@ export class DominioFormComponent implements OnInit {
     let SERVIDOR = this.route.snapshot.paramMap.get('id');
     this.apiService.serverById(`${SERVIDOR}`).subscribe(
       servidor => this.servidor = servidor);
+      console.log(`aqui é o server ${SERVIDOR}`);
 
-
-    let IDSERVER = this.route.snapshot.paramMap.get('id');
+    let IDSERVER = this.route.snapshot.paramMap.get('idd');
     this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
       dominios => this.dominios = dominios);
   }
@@ -83,6 +83,7 @@ export class DominioFormComponent implements OnInit {
                             this.apiService.showMessage('Informe ID do servidor para continuar');
                           } else {
                             let IDSERVER = this.route.snapshot.paramMap.get('id');
+                            this.dominio.IDSERVER = this.servidor.ID;
                             this.apiService.newDominio(this.dominio).subscribe(() =>{
                             this.router.navigate([`${IDSERVER}/dominios`]);
                             this.apiService.showMessage('Dominio Criado com Sucesso!');
@@ -99,7 +100,7 @@ export class DominioFormComponent implements OnInit {
   }
 
   cancel(): void {
-    let IDSERVER = this.route.snapshot.paramMap.get('id');
-    this.router.navigate([`${IDSERVER}/dominios`]);
+    let SERVIDOR = this.route.snapshot.paramMap.get('id');
+    this.router.navigate([`${SERVIDOR}/dominios`]);
   }
 }
