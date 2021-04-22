@@ -1,3 +1,4 @@
+import { Cliente } from './../../components/models/cliente.model';
 import { Servidor } from './../../components/models/servidor.model';
 import { ApiService } from './../../api/api.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,7 +12,12 @@ import { Router } from '@angular/router';
 export class ServersComponent implements OnInit {
   
   servidors!: Servidor[];
-  displayedColumns = ['id', 'name', 'ip', 'snmp', 'action'];
+  clients: Cliente[] = [];
+  // clients: Cliente = {
+  //   NAME:''
+  // }
+  
+  displayedColumns = ['id', 'name', 'ip', 'cliente', 'action' ];
 
   constructor(
     private apiService: ApiService,

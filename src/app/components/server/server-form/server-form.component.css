@@ -4,6 +4,13 @@ form {
 }
 
 button {
-    margin: 10px 10px 0px 0px ;
-    
+    margin: 10px 10px 0px 0px ;   
 }
+
+.tipo {
+    margin-left: 10px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+    margin: 20px 16px 20px;
+  }

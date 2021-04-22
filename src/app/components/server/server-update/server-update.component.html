@@ -11,6 +11,15 @@
             [(ngModel)]="server.IP" name="ip">
         </mat-form-field>
 
+        <mat-form-field appearance="fill">
+            <mat-label>CLIENTE</mat-label>
+            <mat-select (selectionChange)="clienteChange($event.value)">
+              <mat-option  *ngFor="let cliente of clientes" [value]="cliente.ID">
+                {{cliente.NAME}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
         <mat-form-field>
             <input matInput placeholder="SNMP_COMMUNITY"
             [(ngModel)]="server.SNMP" name="snmp">

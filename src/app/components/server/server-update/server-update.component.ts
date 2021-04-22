@@ -1,3 +1,4 @@
+import { Cliente } from './../../models/cliente.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../../api/api.service';
 import { Servidor } from './../../models/servidor.model';
@@ -17,6 +18,8 @@ export class ServerUpdateComponent implements OnInit {
     SNMP: ''
   }
 
+  clientes: Cliente[] = [];
+
   constructor(
     private apiService: ApiService,  
     private router: Router,
@@ -28,10 +31,14 @@ export class ServerUpdateComponent implements OnInit {
     this.apiService.serverById(`${ID}`).subscribe(server => {
       this.server = server;
     });
+
+    this.apiService.getAllCliente().subscribe( 
+      cliente => this.clientes = cliente)
   }
 
   AtualizarServidor(): void {
     this.apiService.updateServer(this.server).subscribe(() =>{
+      this.server.CLIENTE = `${this.clientes}`;
       this.apiService.showMessage('Servidor Atualizado!')
       this.router.navigate(['/servers'])
     })
@@ -39,5 +46,9 @@ export class ServerUpdateComponent implements OnInit {
 
   cancel(): void {
     this.router.navigate(['/servers'])
+  }
+
+  clienteChange(ID: any): void {
+    this.server.CLIENTE = `${ID}`;
   }
 }

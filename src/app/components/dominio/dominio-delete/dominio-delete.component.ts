@@ -31,22 +31,29 @@ export class DominioDeleteComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     let IDSERVER = this.route.snapshot.paramMap.get('idd')
     this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
       dominios => this.dominios = dominios);
+      console.log(`O ID DO SERVIDOR É ${IDSERVER}`);
 
-    let ID = this.route.snapshot.paramMap.get('id')
-    this.apiService.dominioById(`${ID}`).subscribe(dominio => {
-      this.dominio = dominio;
-    });
+    
+    // let ID = this.dominio.ID
+    // this.apiService.dominioById(`${IDSERVER}`).subscribe(dominio => {
+    // this.dominio.IDSERVER = this.servidor.ID;
+    //   console.log(`AQUI ESTA OS DADOS DO DOMINIO ${ID}`);
+    //   this.dominio = dominio});
   }
 
   DeletarDominio(): void {
-    this.apiService.delDominio(`${this.dominio.ID}`).subscribe(() =>{
-      this.apiService.showMessage('Dominio Deletado Com Sucesso!')
-      console.log(this.dominio);
-      this.router.navigate(['/dominios']);
-    });
+    
+    this.apiService.showMessage('Dominio Deletado Com Sucesso!')
+
+    // this.apiService.delDominio(`${this.dominio.ID}`).subscribe(() =>{
+    //   this.apiService.showMessage('Dominio Deletado Com Sucesso!')
+    //   console.log(this.dominio);
+    //   this.router.navigate(['/dominios']);
+    // });
   }
 
   cancel(): void {

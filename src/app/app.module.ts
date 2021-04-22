@@ -58,7 +58,8 @@ import { DominioFormComponent } from './components/dominio/dominio-form/dominio-
 import { DominioListComponent } from './components/dominio/dominio-list/dominio-list.component';
 import { DominioDeleteComponent } from './components/dominio/dominio-delete/dominio-delete.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -117,7 +118,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatDividerModule,
     MatIconModule,
     ReactiveFormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

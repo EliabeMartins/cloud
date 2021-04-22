@@ -65,6 +65,7 @@ export class DominioFormComponent implements OnInit {
           } else {
                   if (this.dominio.DATABASE === false) {
                     let IDSERVER = this.route.snapshot.paramMap.get('id');
+                    this.dominio.IDSERVER = this.servidor.ID;
                     this.apiService.newDominio(this.dominio).subscribe(() =>{
                     this.router.navigate([`${IDSERVER}/dominios`]);
                     this.apiService.showMessage('Dominio Criado com Sucesso!');
@@ -79,16 +80,12 @@ export class DominioFormComponent implements OnInit {
                         if (this.dominio.PASSWORDBD === "") {
                           this.apiService.showMessage('Por favor Informe Senha para o Banco de Dados');
                         } else {
-                          if (this.dominio.IDSERVER === "") {
-                            this.apiService.showMessage('Informe ID do servidor para continuar');
-                          } else {
-                            let IDSERVER = this.route.snapshot.paramMap.get('id');
+                          let IDSERVER = this.route.snapshot.paramMap.get('id');
                             this.dominio.IDSERVER = this.servidor.ID;
-                            this.apiService.newDominio(this.dominio).subscribe(() =>{
+                            this.apiService.newDominio(this.dominio).subscribe(() =>{                              
                             this.router.navigate([`${IDSERVER}/dominios`]);
                             this.apiService.showMessage('Dominio Criado com Sucesso!');
                           });
-                          }
                         }
                       }
                     }

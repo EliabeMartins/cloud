@@ -107,8 +107,6 @@ export class ApiService {
     const url = `${this.baseURL}dominios/${IDSERVER}`
     return this.http.delete<Dominio[]>(url);
   }
-
-
   // delDominio(ID: string): Observable<Dominio>{
   //   const url = `${this.baseURL}dominios/${ID}`
   //   return this.http.delete<Dominio>(url);
