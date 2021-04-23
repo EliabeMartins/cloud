@@ -3,5 +3,6 @@ export interface Servidor {
     CLIENTE?: string,
     NAME: string,
     IP: string,
+    TIPO?: string,
     SNMP?: string
 }

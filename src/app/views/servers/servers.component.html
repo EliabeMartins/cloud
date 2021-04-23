@@ -27,6 +27,12 @@
         <th mat-header-cell *matHeaderCellDef>CLIENTE</th>
         <td mat-cell *matCellDef="let row">{{row.CLIENTE}}</td>
       </ng-container>
+
+
+      <ng-container matColumnDef="Tipo">
+        <th mat-header-cell *matHeaderCellDef>TIPO</th>
+        <td mat-cell *matCellDef="let row">{{row.TIPO}}</td>
+      </ng-container>
   
    
       <ng-container matColumnDef="action">

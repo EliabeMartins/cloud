@@ -12,12 +12,8 @@ import { Router } from '@angular/router';
 export class ServersComponent implements OnInit {
   
   servidors!: Servidor[];
-  clients: Cliente[] = [];
-  // clients: Cliente = {
-  //   NAME:''
-  // }
-  
-  displayedColumns = ['id', 'name', 'ip', 'cliente', 'action' ];
+
+  displayedColumns = ['id', 'name', 'ip', 'cliente', 'Tipo', 'action' ];
 
   constructor(
     private apiService: ApiService,

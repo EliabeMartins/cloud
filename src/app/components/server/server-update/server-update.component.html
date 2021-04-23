@@ -24,6 +24,16 @@
             <input matInput placeholder="SNMP_COMMUNITY"
             [(ngModel)]="server.SNMP" name="snmp">
         </mat-form-field>
+
+
+        <mat-form-field appearance="fill">
+            <mat-label>TIPO</mat-label>
+            <mat-select (selectionChange)="tipoChange($event.value)">
+              <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
+                {{tipo.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
     </form>
     
     
