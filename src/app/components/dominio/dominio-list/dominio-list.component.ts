@@ -16,7 +16,10 @@ export class DominioListComponent implements OnInit {
     ID:'',
     IDSERVER:''
   }
-  
+
+  idserver!: string;
+
+
   displayedColumns = ['DOMINIO', 'USER_N', 'IP_DB', 'N_DB', 'ACTION'];
   // displayedColumns = ['ID', 'DOMINIO', 'USER_N', 'IP_DB', 'N_DB', 'ACTION'];
 
@@ -27,10 +30,9 @@ export class DominioListComponent implements OnInit {
 
   ngOnInit(): void {
     let IDSERVER = this.route.snapshot.paramMap.get('idd')
+    this.idserver = `${IDSERVER}`;
     this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
-      dominios => this.dominios = dominios);
-      // console.log(`estou no server ${IDSERVER}`);
-      
+      dominios => this.dominios = dominios);      
   }
 
   navigateToCreateDominio(): void {
@@ -42,8 +44,4 @@ export class DominioListComponent implements OnInit {
     this.router.navigate(['/servers']);
   }
 
-  delete(): void {
-    let IDSERVER = this.route.snapshot.paramMap.get('idd')
-    this.router.navigate([`${IDSERVER}/delete/dominio`]);
-  }
 }

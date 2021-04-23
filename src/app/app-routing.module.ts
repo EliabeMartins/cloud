@@ -62,8 +62,8 @@ const routes: Routes = [
       
       { path: ':idd/dominios', component: DominioListComponent },
       { path: ':id/new/dominio', component: DominioFormComponent },
-      { path: ':idd/delete/dominio', component: DominioDeleteComponent }, 
-      // { path: ':id/delete/dominio/:id', component: DominioDeleteComponent }, 
+      { path: ':idd/delete/dominio/:id', component: DominioDeleteComponent }, 
+      
 
       {  path: 'new/cliente', component: ClientFormComponent },
       {  path: 'update/cliente/:id', component: ClientUpdateComponent },

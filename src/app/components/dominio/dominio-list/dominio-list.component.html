@@ -37,14 +37,9 @@
           <!-- <a routerLink="/update/dominio/{{ row.ID }}" mat-mini-fab class="edit">
             <i class="material-icons">edit</i>
           </a> -->
-          <!-- <a routerLink="/{{row.ID}}/delete/dominio/{{row.DOMINIO}}" mat-mini-fab class="delet">
-            <i class="material-icons">delete</i>
-          </a> -->
-
-          <a routerLink="#" (click)="delete()" mat-mini-fab class="delet">
+          <a routerLink="/{{this.idserver}}/delete/dominio/{{row.ID}}" mat-mini-fab class="delet">
             <i class="material-icons">delete</i>
           </a>
-
           <!-- <a routerLink="/dominios" mat-mini-fab class="ler">
             <i class="material-icons">menu</i>
           </a> -->

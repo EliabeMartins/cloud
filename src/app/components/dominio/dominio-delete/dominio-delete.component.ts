@@ -10,8 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DominioDeleteComponent implements OnInit {
 
-  
-  dominios!: Dominio[];
+  dominios: Dominio[] = [];
 
   dominio: Dominio = {
     ID: '',
@@ -31,29 +30,21 @@ export class DominioDeleteComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
+    let id = this.route.snapshot.paramMap.get('id')
     let IDSERVER = this.route.snapshot.paramMap.get('idd')
-    this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
-      dominios => this.dominios = dominios);
-      console.log(`O ID DO SERVIDOR É ${IDSERVER}`);
-
+    this.apiService.dominioById(`${IDSERVER}`,`${id}`).subscribe(
+      dominios => this.dominio = dominios);
     
-    // let ID = this.dominio.ID
-    // this.apiService.dominioById(`${IDSERVER}`).subscribe(dominio => {
-    // this.dominio.IDSERVER = this.servidor.ID;
-    //   console.log(`AQUI ESTA OS DADOS DO DOMINIO ${ID}`);
-    //   this.dominio = dominio});
   }
 
   DeletarDominio(): void {
-    
-    this.apiService.showMessage('Dominio Deletado Com Sucesso!')
-
-    // this.apiService.delDominio(`${this.dominio.ID}`).subscribe(() =>{
-    //   this.apiService.showMessage('Dominio Deletado Com Sucesso!')
-    //   console.log(this.dominio);
-    //   this.router.navigate(['/dominios']);
-    // });
+    let id = this.route.snapshot.paramMap.get('id')
+    let IDSERVER = this.route.snapshot.paramMap.get('idd')
+    this.apiService.delDominio(`${IDSERVER}`,`${id}`).subscribe(() =>{
+      this.apiService.showMessage('Dominio Deletado Com Sucesso!')
+      // console.log(this.dominio);
+      this.router.navigate([`${IDSERVER}/dominios`]);
+    });
   }
 
   cancel(): void {
