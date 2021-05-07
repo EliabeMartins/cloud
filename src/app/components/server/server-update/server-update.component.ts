@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from './../../../api/api.service';
 import { Servidor } from './../../models/servidor.model';
 import { Component, OnInit } from '@angular/core';
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-server-update',
@@ -11,17 +12,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./server-update.component.css']
 })
 export class ServerUpdateComponent implements OnInit {
-
-  tipos: Tipo [] = [
-    {value: 'Aplicação', viewValue: 'Aplicação'},
-    {value: 'Backup', viewValue: 'Backup'},
-    {value: 'Balancer', viewValue: 'Balancer'},
-    {value: 'Database', viewValue: 'Database'},
-    {value: 'Dev', viewValue: 'Dev'},
-    {value: 'Router', viewValue: 'Router'},
-    {value: 'Storage', viewValue: 'Storage'},
-    {value: 'Outros', viewValue: 'Outros'}
-  ];
 
   // server!: Servidor
   server: Servidor = {
@@ -32,6 +22,7 @@ export class ServerUpdateComponent implements OnInit {
     SNMP: '',
 
   }
+  tipos: Tipo [] = [];
 
   clientes: Cliente[] = [];
 
@@ -49,6 +40,9 @@ export class ServerUpdateComponent implements OnInit {
 
     this.apiService.getAllCliente().subscribe( 
       cliente => this.clientes = cliente)
+
+    this.apiService.getAllTipo().subscribe( 
+        tipo => this.tipos = tipo)
   }
 
   AtualizarServidor(): void {
@@ -65,7 +59,10 @@ export class ServerUpdateComponent implements OnInit {
   }
 
   clienteChange(ID: any): void {
-    this.server.CLIENTE = `${ID}`;
+    this.apiService.clientById(`${ID}`).subscribe(() =>{
+      this.server.CLIENTE = `${ID}`;
+    })
+    
   }
 
   tipoChange(Tipo: any): void {

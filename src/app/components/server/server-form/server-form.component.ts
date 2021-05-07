@@ -28,17 +28,11 @@ export class ServerFormComponent implements OnInit {
     NAME: ''
   }
 
-  tipos: Tipo [] = [
-    {value: 'Aplicação', viewValue: 'Aplicação'},
-    {value: 'Backup', viewValue: 'Backup'},
-    {value: 'Balancer', viewValue: 'Balancer'},
-    {value: 'Database', viewValue: 'Database'},
-    {value: 'Dev', viewValue: 'Dev'},
-    {value: 'Router', viewValue: 'Router'},
-    {value: 'Storage', viewValue: 'Storage'},
-    {value: 'Outros', viewValue: 'Outros'}
-  ];
+  tipos: Tipo [] = [];
 
+  tipo: Tipo = {
+    NAME: ''
+  }
 
   constructor(
     private apiService: ApiService,  
@@ -47,6 +41,9 @@ export class ServerFormComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getAllCliente().subscribe( 
       cliente => this.clientes = cliente)
+    
+    this.apiService.getAllTipo().subscribe(
+      tipo => this.tipos = tipo)
   }
 
   novoServidor(): void {
@@ -69,11 +66,15 @@ export class ServerFormComponent implements OnInit {
     this.router.navigate(['/servers'])
   }
 
+  novoCliente(): void {
+    this.router.navigate(['new/cliente'])
+  }
+
   clienteChange(ID: any): void {
     this.server.CLIENTE = `${ID}`;
   }
 
-  tipoChange(Tipo: any): void {
-    this.server.TIPO = `${Tipo}`;
+  tipoChange(ID: any): void {
+    this.server.TIPO = `${ID}`;
   }
 }

@@ -3,12 +3,13 @@ export interface Dominio {
     ID?: string,
     IDSERVER?: string,
     DOMINIO?: string,
+    IPEXTERNO?: string,
     NAMEUSER?: string,
     PASSWORDUSER?: string,
     IPBD?: string,
     NAMEBD?: string,
+    USERBD?: string,
     PASSWORDBD?: string,
-    INSTALLWP?: boolean,
-    SSL?: boolean
-    DATABASE?: boolean
+    DATABASE?: boolean,
+    disabled?: boolean
 }

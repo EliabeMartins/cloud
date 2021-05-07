@@ -1,4 +1,4 @@
 export interface Tipo {
-  value: string;
-  viewValue: string;
+  ID?: string,
+  NAME?: string
 }

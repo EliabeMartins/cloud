@@ -42,7 +42,6 @@ export class DominioDeleteComponent implements OnInit {
     let IDSERVER = this.route.snapshot.paramMap.get('idd')
     this.apiService.delDominio(`${IDSERVER}`,`${id}`).subscribe(() =>{
       this.apiService.showMessage('Dominio Deletado Com Sucesso!')
-      // console.log(this.dominio);
       this.router.navigate([`${IDSERVER}/dominios`]);
     });
   }

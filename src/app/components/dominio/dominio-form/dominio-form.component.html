@@ -17,12 +17,12 @@
             <input matInput placeholder="Domínio" 
             [(ngModel)]="dominio.DOMINIO" name="DOMÍNIO" required>
         </mat-form-field>
-    
-        <mat-list>
-            <mat-slide-toggle [(ngModel)]="dominio.SSL" name="SSL">SSL</mat-slide-toggle> <br>
-        </mat-list>
-        
 
+        <mat-form-field>
+            <input matInput placeholder="IP Externo" 
+            [(ngModel)]="dominio.IPEXTERNO" name="IP EXTERNO" required>
+        </mat-form-field>
+        
         <mat-form-field>
             <input matInput placeholder="Name de Usuário" 
             [(ngModel)]="dominio.NAMEUSER" name="NOME DE USUÁRIO" required>
@@ -49,23 +49,38 @@
         </mat-form-field>
 
         <mat-form-field>
+            <input matInput placeholder="Nome de Usuario do Banco" 
+            [(ngModel)]="dominio.USERBD"name="USERBD" required>
+        </mat-form-field>
+
+        <mat-form-field>
             <input matInput placeholder="Senha do Banco"
             [(ngModel)]="dominio.PASSWORDBD" name="password" required>
         </mat-form-field>
 
-        <!-- <mat-list>
-            <mat-slide-toggle [(ngModel)]="dominio.INSTALLWP" name="installwp">Instalar WP</mat-slide-toggle>
-        </mat-list> -->
-        
-
     </form>
 
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Number</mat-label>
+          <input type="text"
+                 placeholder="Pick one"
+                 aria-label="Number"
+                 matInput
+                 [formControl]="myControl"
+                 [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
 
     <!-- BOTÕES AQUI ABAIXO -->
 
     <button mat-raised-button (click)="novoDominio()" color="primary">
-        <!--Cadastrar-->
-        Domínio
+        Adicionar Domínio
     </button>
 
     <button mat-raised-button (click)="cancel()">

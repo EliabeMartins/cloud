@@ -13,6 +13,7 @@ import { Usuario } from '../components/models/usuario.model';
 import { Servidor } from '../components/models/servidor.model';
 import { Cliente } from '../components/models/cliente.model';
 import { Dominio } from '../components/models/dominio.model';
+import { Tipo } from '../components/models/tipo.model';
 
 
 @Injectable({
@@ -34,7 +35,6 @@ export class ApiService {
         duration: 3000,
         horizontalPosition: "right",
         verticalPosition: "top"
-        // panelClass: isError ? ['msg-error'] : ['msg-success']
         })
   }
   // *********  METODO DE LOGIN *********
@@ -71,6 +71,10 @@ export class ApiService {
     return this.http.delete<Cliente>(url, this.getHttpOptions());
   }
 
+  // ############ TIPO ##############
+  getAllTipo(): Observable<Tipo[]> {
+    return this.http.get<Tipo[]>(`${this.baseURL}tipos`, this.getHttpOptions());
+  }
   // ############ SERVIDOR ############
   getAllServer(): Observable<Servidor[]> {
     return this.http.get<Servidor[]>(`${this.baseURL}servers`, this.getHttpOptions());
@@ -80,11 +84,11 @@ export class ApiService {
   }
   serverById(ID: string): Observable<Servidor>{
     const url = `${this.baseURL}servers/${ID}`
-    return this.http.get<Servidor>(url)
+    return this.http.get<Servidor>(url, this.getHttpOptions());
   }
   updateServer(server: Servidor): Observable<Servidor> {
     const url = `${this.baseURL}servers/${server.ID}`
-    return this.http.patch<Servidor>(url, server, this.getHttpOptions())
+    return this.http.patch<Servidor>(url, server, this.getHttpOptions());
   }
   delServer(ID: string): Observable<Servidor>{
     const url = `${this.baseURL}servers/${ID}`
@@ -94,18 +98,18 @@ export class ApiService {
   // ############ DOMÍNIOS ############
   getAllDominios(IDSERVER: string): Observable<Dominio[]> {
     const url = `${this.baseURL}dominios/${IDSERVER}`
-    return this.http.get<Dominio[]>(url)
+    return this.http.get<Dominio[]>(url, this.getHttpOptions());
   }
   newDominio(dominio: Dominio): Observable<Dominio> {
-    return this.http.post<Dominio>(`${this.baseURL}dominios`, dominio);
+    return this.http.post<Dominio>(`${this.baseURL}dominios`, dominio, this.getHttpOptions());
   }
   dominioById(IDSERVER: string, ID: string): Observable<Dominio>{
     const url = `${this.baseURL}dominios/${IDSERVER}/${ID}`
-    return this.http.get<Dominio>(url)
+    return this.http.get<Dominio>(url, this.getHttpOptions());
   }
   delDominio(IDSERVER: string, ID: string): Observable<Dominio[]>{
     const url = `${this.baseURL}dominios/${IDSERVER}/${ID}`
-    return this.http.delete<Dominio[]>(url);
+    return this.http.delete<Dominio[]>(url, this.getHttpOptions());
   }
   // delDominio(ID: string): Observable<Dominio>{
   //   const url = `${this.baseURL}dominios/${ID}`

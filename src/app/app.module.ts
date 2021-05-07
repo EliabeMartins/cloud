@@ -60,7 +60,8 @@ import { DominioDeleteComponent } from './components/dominio/dominio-delete/domi
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 
@@ -120,7 +121,10 @@ import { MatRadioModule } from '@angular/material/radio';
     ReactiveFormsModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatCheckboxModule,
+    MatAutocomplete,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

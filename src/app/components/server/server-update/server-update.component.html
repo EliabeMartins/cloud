@@ -13,7 +13,7 @@
 
         <mat-form-field appearance="fill">
             <mat-label>CLIENTE</mat-label>
-            <mat-select (selectionChange)="clienteChange($event.value)">
+            <mat-select (selectionChange)="clienteChange($event.value)" name="cliente" [(ngModel)]="server.CLIENTE">
               <mat-option  *ngFor="let cliente of clientes" [value]="cliente.ID">
                 {{cliente.NAME}}
               </mat-option>
@@ -28,9 +28,9 @@
 
         <mat-form-field appearance="fill">
             <mat-label>TIPO</mat-label>
-            <mat-select (selectionChange)="tipoChange($event.value)">
-              <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
-                {{tipo.viewValue}}
+            <mat-select (selectionChange)="tipoChange($event.value)" name="tipo" [(ngModel)]="server.TIPO">
+              <mat-option *ngFor="let tipo of tipos" [value]="tipo.ID">
+                {{tipo.NAME}}
               </mat-option>
             </mat-select>
           </mat-form-field>

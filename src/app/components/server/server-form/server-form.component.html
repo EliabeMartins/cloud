@@ -26,12 +26,11 @@
             [(ngModel)]="server.SNMP" name="snmp">
         </mat-form-field>
 
-        
         <mat-form-field appearance="fill">
           <mat-label>TIPO</mat-label>
           <mat-select (selectionChange)="tipoChange($event.value)">
-            <mat-option *ngFor="let tipo of tipos" [value]="tipo.value">
-              {{tipo.viewValue}}
+            <mat-option *ngFor="let tipo of tipos" [value]="tipo.ID">
+              {{tipo.NAME}}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -40,9 +39,13 @@
     
     
     <button mat-raised-button (click)="novoServidor()" color="primary">
-        Cadastrar
+        Cadastrar Servidor
     </button>
     
+    <button mat-raised-button (click)="novoCliente()" color="primary">
+      Novo Cliente
+    </button>
+
     <button mat-raised-button (click)="cancel()">
         Cancelar
     </button>
