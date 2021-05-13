@@ -62,7 +62,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autocomplete';
-import { ServerReadComponent } from './components/server/server-read/server-read.component';
+
 import { IpFormComponent } from './components/ips/ip-form/ip-form.component';
 import { IpUpdateComponent } from './components/ips/ip-update/ip-update.component';
 import { IpDelComponent } from './components/ips/ip-del/ip-del.component';
@@ -106,7 +106,6 @@ import { UpdateIpDomComponent } from './components/dominio/update-ip-dom/update-
     DominioFormComponent,
     DominioListComponent,
     DominioDeleteComponent,
-    ServerReadComponent,
     IpFormComponent,
     IpUpdateComponent,
     IpDelComponent,
