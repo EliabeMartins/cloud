@@ -25,9 +25,10 @@
             <input matInput placeholder="SNMP_COMMUNITY"
             [(ngModel)]="server.SNMP" name="snmp">
         </mat-form-field>
-
+                 
+        
         <mat-form-field appearance="fill">
-          <mat-label>TIPO</mat-label>
+          <mat-label>TIPO DE SERVIDOR</mat-label>
           <mat-select (selectionChange)="tipoChange($event.value)">
             <mat-option *ngFor="let tipo of tipos" [value]="tipo.ID">
               {{tipo.NAME}}
@@ -35,6 +36,14 @@
           </mat-select>
         </mat-form-field>
 
+
+        <!-- <mat-label>Itens do servidor</mat-label> -->
+        <section>
+          <mat-checkbox>Backup</mat-checkbox>
+          <mat-checkbox>Sync</mat-checkbox>
+        </section>
+
+        
     </form>
     
     

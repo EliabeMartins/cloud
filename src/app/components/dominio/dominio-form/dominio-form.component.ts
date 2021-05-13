@@ -1,5 +1,6 @@
 import { Servidor } from './../../models/servidor.model';
 import { Dominio } from './../../models/dominio.model';
+import { Tipo } from './../../models/tipo.model';
 import { ApiService } from './../../../api/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -15,6 +16,12 @@ import {map, startWith} from 'rxjs/operators';
 })
 
 export class DominioFormComponent implements OnInit {
+
+  tipos: Tipo [] = [];
+
+  tipo: Tipo = {
+    NAME: ''
+  }
 
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
@@ -55,6 +62,9 @@ export class DominioFormComponent implements OnInit {
     let IDSERVER = this.route.snapshot.paramMap.get('idd');
     this.apiService.getAllDominios(`${IDSERVER}`).subscribe(
       dominios => this.dominios = dominios);
+
+      this.apiService.getAllTipo().subscribe(
+        tipo => this.tipos = tipo)
 
       this.filteredOptions = this.myControl.valueChanges
       .pipe(
@@ -112,6 +122,10 @@ export class DominioFormComponent implements OnInit {
   cancel(): void {
     let SERVIDOR = this.route.snapshot.paramMap.get('id');
     this.router.navigate([`${SERVIDOR}/dominios`]);
+  }
+
+  ipChange(IP: any): void {
+    this.servidor.IP= `${IP}`;
   }
 
   private _filter(value: string): string[] {

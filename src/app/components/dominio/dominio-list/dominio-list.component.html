@@ -34,15 +34,20 @@
       <ng-container matColumnDef="ACTION">
         <th mat-header-cell *matHeaderCellDef>AÇÃO</th>
         <td mat-cell *matCellDef="let row">
-          <!-- <a routerLink="/update/dominio/{{ row.ID }}" mat-mini-fab class="edit">
+          
+          <a routerLink="/{{this.idserver}}/{{row.ID}}/ips" mat-mini-fab color="primary" class="read">
+            <i class="material-icons">menu</i>
+          </a>
+
+          <!-- <a routerLink="#" mat-mini-fab class="edit">
             <i class="material-icons">edit</i>
           </a> -->
+
           <a routerLink="/{{this.idserver}}/delete/dominio/{{row.ID}}" mat-mini-fab class="delet">
             <i class="material-icons">delete</i>
           </a>
-          <!-- <a routerLink="/dominios" mat-mini-fab class="ler">
-            <i class="material-icons">menu</i>
-          </a> -->
+          
+          
         </td>
       </ng-container>
     

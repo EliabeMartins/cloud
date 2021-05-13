@@ -1,3 +1,5 @@
+import { NewIpDomComponent } from './components/dominio/new-ip-dom/new-ip-dom.component';
+
 // Angular
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -37,6 +39,16 @@ import { DominioFormComponent } from './components/dominio/dominio-form/dominio-
 import { DominioListComponent } from './components/dominio/dominio-list/dominio-list.component';
 import { DominioDeleteComponent } from './components/dominio/dominio-delete/dominio-delete.component';
 
+import { IpListComponent } from './components/ips/ip-list/ip-list.component';
+import { IpFormComponent } from './components/ips/ip-form/ip-form.component';
+import { IpDelComponent } from './components/ips/ip-del/ip-del.component';
+import { IpUpdateComponent } from './components/ips/ip-update/ip-update.component';
+
+import { ListIpsDomComponent } from './components/dominio/list-ips-dom/list-ips-dom.component';
+import { DelIpDomComponent } from './components/dominio/del-ip-dom/del-ip-dom.component';
+import { UpdateIpDomComponent } from './components/dominio/update-ip-dom/update-ip-dom.component';
+
+
 
 const routes: Routes = [
   {  
@@ -55,11 +67,20 @@ const routes: Routes = [
       {  path: 'update/server/:id', component: ServerUpdateComponent },
       {  path: 'delete/server/:id', component: ServerDeleteComponent },
       
+      {  path: 'ips/server/:idd', component: IpListComponent },
+      {  path: 'ips/adc/:id', component: IpFormComponent},
+      {  path: ':idd/update/ip/:id', component: IpUpdateComponent},
+      {  path: ':idd/del/:id', component: IpDelComponent},
+
+      {  path: ':id/:idd/ips', component: ListIpsDomComponent}, //lista os ips validos do dominio
+      {  path: ':id/:idd/new/ip', component: NewIpDomComponent}, //adiciona ips validos ao dominio selecionado
+      {  path: ':id/:idd/update/:iddd', component: UpdateIpDomComponent}, //ATUALIZAR IP PO ID DE DOMINIO
+      {  path: ':id/:idd/del/:iddd', component: DelIpDomComponent}, //DELETA IP DE DOMINIO POR ID
+
       { path: ':idd/dominios', component: DominioListComponent },
       { path: ':id/new/dominio', component: DominioFormComponent },
       { path: ':idd/delete/dominio/:id', component: DominioDeleteComponent }, 
       
-
       {  path: 'new/cliente', component: ClientFormComponent },
       {  path: 'update/cliente/:id', component: ClientUpdateComponent },
       {  path: 'delete/cliente/:id', component: ClientDeleteComponent },

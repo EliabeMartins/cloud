@@ -62,6 +62,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ServerReadComponent } from './components/server/server-read/server-read.component';
+import { IpFormComponent } from './components/ips/ip-form/ip-form.component';
+import { IpUpdateComponent } from './components/ips/ip-update/ip-update.component';
+import { IpDelComponent } from './components/ips/ip-del/ip-del.component';
+import { IpListComponent } from './components/ips/ip-list/ip-list.component';
+import { ListIpsDomComponent } from './components/dominio/list-ips-dom/list-ips-dom.component';
+import { NewIpDomComponent } from './components/dominio/new-ip-dom/new-ip-dom.component';
+import { DelIpDomComponent } from './components/dominio/del-ip-dom/del-ip-dom.component';
+import { UpdateIpDomComponent } from './components/dominio/update-ip-dom/update-ip-dom.component';
 
 
 
@@ -96,7 +105,16 @@ import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autoco
     UserDeleteComponent,
     DominioFormComponent,
     DominioListComponent,
-    DominioDeleteComponent
+    DominioDeleteComponent,
+    ServerReadComponent,
+    IpFormComponent,
+    IpUpdateComponent,
+    IpDelComponent,
+    IpListComponent,
+    ListIpsDomComponent,
+    NewIpDomComponent,
+    DelIpDomComponent,
+    UpdateIpDomComponent
  
   ],
   imports: [
@@ -123,8 +141,8 @@ import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autoco
     MatSelectModule,
     MatRadioModule,
     MatCheckboxModule,
-    MatAutocomplete,
-    MatAutocompleteModule
+    // MatAutocomplete,
+    // MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

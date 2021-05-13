@@ -13,8 +13,6 @@ import { ApiService } from './../../../api/api.service';
 export class ClientFormComponent implements OnInit {
 
   // cliente!: Cliente;
-  
-
   cliente: Cliente = {
     ID:'',
     NAME: '',

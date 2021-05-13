@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-title>Deletar IP's</mat-card-title>
+    <form class="form-group">
+
+        <mat-form-field>
+            <input matInput placeholder="ID" [value]="ips.ID" name="IDSERV" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="IP INTERNO" [value]="ips.IPINTERNOSERV" name="IPINTERNOSERV" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="IP EXTERNO" [value]="ips.IPEXTERNOSERV" name="IPEXTERNOSERV" disabled>
+        </mat-form-field>
+    </form>
+    
+    
+    <button mat-raised-button (click)="excluir()" color="primary">
+        DELETAR
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
+
+
+

@@ -1,0 +1,29 @@
+
+button {
+    margin: 10px 10px 0px 0px ;
+    
+  }
+  
+  .cliente{
+      margin-left: 30px;
+  }
+  
+  .full-width-table {
+      width: 100%;
+    }
+    .read {
+      margin-right: 12px;
+    }
+    
+    .edit {
+      margin-right: 12px;
+    }
+    
+    .delet {
+      background-color: red;
+    }
+    
+    .ler {
+      margin-left: 12px;
+      background-color: blue;
+    }

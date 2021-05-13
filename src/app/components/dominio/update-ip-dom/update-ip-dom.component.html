@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-title>Deletar IP </mat-card-title>
+    <form class="form-group">
+
+        <mat-form-field>
+            <input matInput placeholder="ID DO IP" [value]="ips.ID" name="ID" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="IP EXTERNO"
+            [(ngModel)]="ips.IPEXTERNODOM" name="IPEXTERNODOM">
+        </mat-form-field>
+    </form>
+    
+    
+    <button mat-raised-button (click)="atualizarIP()" color="primary">
+        Atualizar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
+
+
+

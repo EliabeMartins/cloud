@@ -14,6 +14,7 @@ import { Servidor } from '../components/models/servidor.model';
 import { Cliente } from '../components/models/cliente.model';
 import { Dominio } from '../components/models/dominio.model';
 import { Tipo } from '../components/models/tipo.model';
+import { Ips } from '../components/models/ips.model';
 
 
 @Injectable({
@@ -75,6 +76,49 @@ export class ApiService {
   getAllTipo(): Observable<Tipo[]> {
     return this.http.get<Tipo[]>(`${this.baseURL}tipos`, this.getHttpOptions());
   }
+
+  // ############ IPS DE DOMINIOS ############
+  getIpsDom(IDDOM: string): Observable<Ips[]>{
+    const url = `${this.baseURL}ips/dom/${IDDOM}`
+    return this.http.get<Ips[]>(url);
+  }
+  newIpDom(IP: Ips): Observable<Ips>{
+    return this.http.post<Ips>(`${this.baseURL}ips/dom`, IP);
+  }
+  IdIpDom(IDDOM: string, ID: string): Observable<Ips>{
+    const url = `${this.baseURL}ips/dom/${IDDOM}/${ID}`
+    return this.http.get<Ips>(url);
+  }
+  AtualizarIpDom(IDDOM: string, ID: string): Observable<Ips>{
+    const url = `${this.baseURL}ips/dom/${IDDOM}/${ID}`
+    return this.http.patch<Ips>(url, IDDOM)
+  }
+  DeletarIpDom(IDDOM: string, ID: string): Observable<Ips[]>{
+    const url = `${this.baseURL}ips/dom/${IDDOM}/${ID}`
+    return this.http.delete<Ips[]>(url);
+  }
+
+  // ############ IPS DE SERVIDOR ############
+  getAllServIps(IDSERV: string): Observable<Ips[]>{
+    const url = `${this.baseURL}ips/server/${IDSERV}`
+    return this.http.get<Ips[]>(url);
+  }
+  newServIp(IP: Ips): Observable<Ips>{
+    return this.http.post<Ips>(`${this.baseURL}ips/server`, IP);
+  }
+  getIdServ(IDSERV: string, ID: string): Observable<Ips>{
+    const url = `${this.baseURL}ips/server/${IDSERV}/${ID}`
+    return this.http.get<Ips>(url);
+  }
+  UpdateIpServ(IDSERV: string, ID: string): Observable<Ips>{
+    const url = `${this.baseURL}ips/server/${IDSERV}/${ID}`
+    return this.http.patch<Ips>(url, IDSERV)
+  }
+  delIpServ(IDSERV: string, ID: string): Observable<Ips[]>{
+    const url = `${this.baseURL}ips/server/${IDSERV}/${ID}`
+    return this.http.delete<Ips[]>(url);
+  }
+
   // ############ SERVIDOR ############
   getAllServer(): Observable<Servidor[]> {
     return this.http.get<Servidor[]>(`${this.baseURL}servers`, this.getHttpOptions());

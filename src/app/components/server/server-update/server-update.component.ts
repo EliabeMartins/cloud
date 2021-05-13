@@ -20,7 +20,6 @@ export class ServerUpdateComponent implements OnInit {
     TIPO: '',
     CLIENTE: '',
     SNMP: '',
-
   }
   tipos: Tipo [] = [];
 

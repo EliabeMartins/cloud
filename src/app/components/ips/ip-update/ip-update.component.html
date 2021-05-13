@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-card-title>Atualizar IP's</mat-card-title>
+    <form class="form-group">
+
+        <mat-form-field>
+            <input matInput placeholder="ID" [(ngModel)]="ips.ID" name="IDSERV" disabled>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="IP INTERNO" [(ngModel)]="ips.IPINTERNOSERV" name="IPINTERNOSERV">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="IP EXTERNO" [(ngModel)]="ips.IPEXTERNOSERV" name="IPEXTERNOSERV">
+        </mat-form-field>
+    </form>
+    
+    
+    <button mat-raised-button (click)="atualizarIP()" color="primary">
+        Atualizar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
+
+
+

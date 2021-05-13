@@ -42,6 +42,15 @@
             <input matInput placeholder="IP Banco" 
             [(ngModel)]="dominio.IPBD"name="IP DO BD" required>
         </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>IP DO BANCO</mat-label>
+            <mat-select (selectionChange)="ipChange($event.value)">
+              <mat-option *ngFor="let tipo of tipos" [value]="tipo.ID">
+                {{tipo.NAME}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         
         <mat-form-field>
             <input matInput placeholder="Nome do Banco" 
@@ -60,7 +69,7 @@
 
     </form>
 
-    <form class="example-form">
+    <!-- <form class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Number</mat-label>
           <input type="text"
@@ -75,7 +84,7 @@
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
-      </form>
+      </form> -->
 
     <!-- BOTÕES AQUI ABAIXO -->
 
